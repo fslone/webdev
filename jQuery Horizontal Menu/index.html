@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">  
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">  
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+<style type="text/css">
+#body_container {
+position:relative;
+width:980px;
+}
+.nav-container {
+background:grey;
+color:white;
+height:50px;
+font-weight:bold;
+width:100%;
+}
+ul {
+padding:0;
+margin-left:auto;
+margin-right:auto;
+}
+li.tab:first-child {
+border-left:1px solid black;
+}
+li.tab {
+border-right:1px solid black;
+display:block;
+float:left;
+height:40px;
+overflow:hidden;
+padding:10px 0 0 0;
+text-align:center;
+}
+.selected {
+background:lightgrey;
+color:black;
+}
+.hover {
+background:white;
+color:black;
+}
+.dropmenu-container div{
+border:1px solid grey;
+border-top:0;
+height:200px;
+left:85px;
+position:absolute;
+top:50;
+width:200px;
+}
+.hidden {
+display:none;
+}
+</style>
+
+
+<script type="text/javascript">
+
+$(function(){	
+	$('li').hover(
+	function(){
+		$(this).addClass('hover');
+		$('#drop1').removeClass('hidden');
+	},
+	function(){
+		$(this).removeClass('hover');
+		$('#drop1').addClass('hidden');
+	}
+	);
+	
+	i=0;
+	
+	$('li').each(
+		function(){
+			i+=1;
+		}
+	);
+	
+	var tab_width=Math.floor(800/i);
+
+	var center_wrapper_width=tab_width*i+i+1;
+	$('ul').css('width',center_wrapper_width);
+	
+	$('li').each(
+		function(){
+			$(this).css('width',tab_width);
+		}	
+	);
+
+	$('li').click(
+		function(){
+			$(this).removeClass('hover');
+			$(this).addClass('selected');
+			$(this).siblings().removeClass('selected');
+		}
+	);
+	
+	
+});
+</script>
+
+
+
+
+</head>
+
+<body>
+<div id="body_container">
+	<div class="nav-container">
+		<div class="center-wrapper">
+			<ul>
+				<li class="tab">Tab 1</li>
+				<li class="tab">Tab 2</li>
+				<li class="tab">Tab 3</li>
+				<li class="tab">Tab 4</li>
+				<li class="tab">Tab 5</li>
+				<li class="tab">Tab 6</li>
+				<li class="tab">Tab 7</li>
+				<li class="tab">Tab 8</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+</body>
+
+</html>
