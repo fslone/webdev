@@ -8,7 +8,17 @@
 #body_container {
 position:relative;
 width:980px;
+border:1px solid black;
+min-height:500px;
+padding:20px;
+-moz-border-radius: 30px;
+-webkit-border-radius: 30px;
+border-radius: 30px; /* future proofing */
+-khtml-border-radius: 30px; /* for old Konqueror browsers */
 }
+
+
+
 .nav-container {
 background:grey;
 color:white;
@@ -26,6 +36,7 @@ border-left:1px solid black;
 }
 li.tab {
 border-right:1px solid black;
+cursor:pointer;
 display:block;
 float:left;
 height:40px;
