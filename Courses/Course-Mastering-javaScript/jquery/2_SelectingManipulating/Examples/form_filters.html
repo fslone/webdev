@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Using Form Element Filters</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<link rel="stylesheet" href="../../css/module2.css" />
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script type="text/javascript">
+			
+		$(function() {
+			
+			// :input - round up any type of form element
+			$("form :input").addClass("redBorder");
+			
+			// val() as SET method - affects all elements in jQuery object.
+			$("form :text").val("Please type here");
+			
+			// val() as GET method - only gets value of the first form element.
+			alert($("form :radio:checked").val());
+			
+		});
+			
+		</script>
+	</head>
+	<body>
+		
+	<h1>Sample Form</h1>	
+	
+	<form>
+
+    <table border="0" cellpadding="8">
+        <tr valign="top">
+            <td>
+                <b>First Name:</b>
+            </td>
+            <td>
+                <input type="text" name="firstname" size="40" />
+            </td>
+        </tr>
+        <tr valign="top">
+            <td>
+                <b>Last Name:</b>
+            </td>
+            <td>
+                <input type="text" name="lastname" size="40" />
+            </td>
+        </tr>
+        <tr valign="top">
+            <td>
+                <b>Zip Code:</b>
+            </td>
+            <td>
+                <input type="text" name="zipcode" size="10" maxlength="10" />
+            </td>
+        </tr>
+        <tr valign="top">
+            <td>
+                <b>Age:</b>
+            </td>
+            <td>
+                <input type="radio" name="age" value="0-17"  />0-17
+                <br/>
+                <input type="radio" name="age" value="18-34" />18-34
+                <br/>
+                <input type="radio" name="age" value="35-49" checked />35-49
+                <br/>
+                <input type="radio" name="age" value="50-64" />50-64
+                <br/>
+                <input type="radio" name="age" value="65+" />65+
+                <br/>
+            </td>
+        </tr>
+        <tr valign="top">
+            <td>
+                <b>Employment Status:</b>
+            </td>
+            <td>
+                <select name="employment" size="1">
+                    <option>--- Choose One ---</option>
+                    <option>Student</option>
+                    <option>Employed</option>
+                    <option>Unemployed</option>
+                    <option>Self-employed</option>
+                    <option>Retired</option>
+                </select>
+            </td>
+        </tr>
+        <tr valign="top">
+            <td>
+                <b>Comments:</b>
+            </td>
+            <td>
+                <textarea name="comments" rows="10" cols="35" wrap>
+                </textarea>
+            </td>
+        </tr>
+        <tr valign="top">
+            <td colspan="2">
+                <input type="checkbox" name="confirm" value="1" />I acknowledge that my survey responses will be recorded in a database for future study and analysis.
+            </td>
+        </tr>
+        <tr valign="top">
+            <td colspan="2">
+                <input type="submit" value="Submit Responses" />&nbsp;&nbsp;&nbsp;<input type="reset" value="Clear Survey Form" />
+            </td>
+        </tr>
+    </table>
+    </form>
+		
+	</body>
+</html>

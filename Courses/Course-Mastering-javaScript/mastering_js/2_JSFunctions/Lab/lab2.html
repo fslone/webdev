@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Lab 2</title>
+		<script type="text/javascript">
+		
+		/*
+
+		   Exercise 2 - Writing Your Own User-Defined Function
+
+		   In this exercise, you will write a UDF that accepts two
+		   parameters:
+
+		   1) the diameter of a circle
+		   2) an empty array
+		   
+		   The function should compute the circumference and area of
+		   the circle and store those values in the array.  After the
+		   function is called, use alert() or console.log() to display the
+		   computed values.
+
+		   Recall that the circumference of a circle is pi (3.14159)
+		   multiplied by the diameter and the area is pi multiplied
+		   by the radius squared.
+
+		   pi x diameter
+		   pi x diameter / 2
+
+		*/
+			
+			var diameter = 10;
+			var results = [];
+			
+			bashValues(diameter, results);
+			console.log("Circumference = " + results[0].toFixed(2));			
+			console.log("Area = " + results[1].toFixed(2));			
+						
+			function bashValues(d,r) {
+				r.push(d * 3.14159);
+				r.push(3.14159 * (d/2) * (d/2));
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

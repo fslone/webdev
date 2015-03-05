@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Lab 4 - Employee Editing Application</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<link rel="stylesheet" href="../../css/module4lab.css" />
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script type="text/javascript">
+						
+		$.ajaxSetup({
+			type: "POST",
+			async: true,
+			cache: false,
+			timeout: 5000,
+			error: function(jqXHR, statusMsg) {
+				if (statusMsg == "timeout") {
+					alert("Ajax request timed out after 5 seconds!");
+				} else {
+					alert("Error occurred during Ajax request: " + jqXHR.status + " " + jqXHR.statusText);
+				}
+			}
+		});				
+						
+		$(function() {
+			
+			// Initial call to getEmployeeList
+			getEmployeeList();
+				
+		});
+		
+		function getEmployeeList() {				
+			$.ajax("employeeselectlist.php", {
+				success: showSelectList
+			});
+		}
+		
+		function showSelectList(respText, statusMsg, jqXHR) {
+			$("#employees").html(respText).fadeIn(750)
+			.find("select").bind("change", getEditForm)
+			.val($("#EmployeeID").length ? $("#EmployeeID").val() : 0);
+		}
+		
+		function getEditForm(evtObj) {
+			var empID = $(this).val();
+			if (empID > 0) {				
+				$.ajax("employeeeditform.php", {
+					data: {id: empID},
+					success: showEditForm
+				});
+			}
+		}
+		
+		function showEditForm(respText, statusMsg, jqXHR) {
+			$("#editingForm").html(respText).fadeIn(750)
+			.find(":text").bind("change", doUpdate);
+		}
+		
+		function doUpdate(evtObj) {
+			$.ajax("employeeupdate.php", {
+				data: {
+					id: $("#EmployeeID").val(),
+					field: this.id,
+					newValue: this.value
+				},
+				success: updateResults
+			});
+		}
+		
+		function updateResults(respText, statusMsg, jqXHR) {
+			if ($.trim(respText) == "Success") {
+				$("#updateMessage").text("Database updated successfully!")
+				.show().fadeOut(8000);
+				getEmployeeList();  // refresh select list after DB update
+			} else {
+				$("#updateMessage").text("Database updated failed!")
+				.show().fadeOut(8000);
+			}
+		}
+			
+		</script>
+	</head>
+	<body>
+	
+		<h1>Employee Editor</h1>
+		
+		<div id="employees"></div>
+		<div id="editingForm"></div>
+		<div id="updateMessage"></div>
+	
+	</body>
+</html>
+

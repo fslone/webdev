@@ -1,0 +1,1 @@
+Updated for jQuery 1.6.1 which was released on 12 May 2011.

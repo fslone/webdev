@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Lab 5: Adding New Content to a Page</title>
+		<style type="text/css">
+		
+			.itemHeading {
+				font-family: Arial,Helvetica,sans-serif;
+				font-size: 24px;
+				font-weight: bold;
+			}
+			
+			.itemText {
+				font-family: Arial,Helvetica,sans-serif;
+				font-size: 14px;			
+			}
+		
+		</style>
+		<script type="text/javascript">
+
+			function addEvent(domElement, event, callback) {
+			
+				if (domElement.addEventListener) {
+				
+					domElement.addEventListener(event, callback, false);
+					return true;
+					
+				} else if (domElement.attachEvent) {
+				
+					return domElement.attachEvent("on" + event, callback);
+			
+				} else {
+				
+					return false;
+				
+				}
+			
+			}
+			
+			function addContent(evtObj) {
+			
+				var h1 = document.createElement("h1");
+				var h1Text = document.createTextNode(document.getElementById("heading").value);
+				h1.appendChild(h1Text);
+				h1.className = "itemHeading";
+				
+				var p = document.createElement("p");
+				var pText = document.createTextNode(document.getElementById("paragraph").value);
+				p.appendChild(pText);
+				p.className = "itemText";
+				
+				var hr = document.createElement("hr");
+			
+				var div = document.getElementById("content");
+				div.appendChild(h1);
+				div.appendChild(p);
+				div.appendChild(hr);
+			
+			}
+			
+			
+			window.onload = function() {
+			
+				addEvent(document.getElementById("btn"), "click", addContent);
+			
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+	
+		<h1>Adding New Content to a Page</h1>
+		
+		<p>Enter a heading and a paragraph below and then click Add to add them to the div with 
+		the id content.</p>
+		
+		<div id="content"></div>
+		
+		<hr />
+		
+		<form>
+		
+			<input type="text" id="heading" size="40" />
+			<br />
+			<textarea id="paragraph" rows="10" cols="50" wrap></textarea>
+			<br />
+			<input type="button" id="btn" value="Add" />
+		
+		</form>	
+			
+	</body>
+</html>

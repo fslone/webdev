@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Lab 3</title>
+		<script type="text/javascript">
+		
+		// Possible Solution to Exercise 3
+
+		// Useful constants
+		var secsPerMinute = 60;
+		var secsPerHour = 60 * 60;
+		var secsPerDay = 24 * 60 * 60;
+
+		var date1 = new Date();
+		var date2 = new Date("January 1, 2012 00:00:00");
+
+		// Difference between date in milliseconds
+		var timeDiff = date2.getTime() - date1.getTime();
+		// Convert to seconds
+		var timeDiffInSecs = Math.round(timeDiff/1000);
+
+		// Compute whole number of days and subtract off those seconds
+		var numDays = Math.floor(timeDiffInSecs/secsPerDay);
+		timeDiffInSecs = timeDiffInSecs - (numDays * secsPerDay)
+
+		// Compute whole number of hours and subtract off those seconds
+		var numHours = Math.floor(timeDiffInSecs/secsPerHour);
+		timeDiffInSecs = timeDiffInSecs - (numHours * secsPerHour);
+
+		// Compute whole number of minutes and subtract off those seconds
+		var numMinutes = Math.floor(timeDiffInSecs/secsPerMinute);
+		timeDiffInSecs = timeDiffInSecs - (numMinutes * secsPerMinute);
+
+		console.log("The time between the two dates is ");
+		console.log(numDays, " days, ", numHours, " hours, ");
+		console.log(numMinutes, " minutes, ", timeDiffInSecs, " seconds.");
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

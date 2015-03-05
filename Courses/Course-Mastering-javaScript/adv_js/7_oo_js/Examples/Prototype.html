@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Defining a JavaScript Object Class</title>
+		<script type="text/javascript">
+			
+
+			var colors1 = ["white", "black"];
+			var colors2 = ["brown", "white", "black"];
+			var colors3 = ["white", "brown"];
+			
+			function Animal(NAME, OWNER, COLORS, SOUND) {
+			
+				this.name = NAME;
+				this.owner = OWNER;
+				this.colors = COLORS;
+				this.sound = SOUND;
+			
+			}
+			
+			// Define the communicate() instance method on the prototype for the Animal class
+			Animal.prototype.communicate = function () {
+				// this = object instance that is invoking the method.
+				alert(this.sound + " I belong to " + this.owner + ".");
+				
+			}
+
+			// Create instances of the Animal class
+			
+			var Cat = new Animal("Oreo", "Peter", colors1, "Meow!");
+			var Dog = new Animal("Walter", "Mary", colors2, "Woof!");
+			var Cow = new Animal("Bessie", "Farmer Jones", colors3, "Moo!");
+
+		</script>
+	</head>
+	<body>
+	
+		<form>
+			<input type="button" value="Make the Cat Speak" onclick="Cat.communicate()" />
+			<input type="button" value="Make the Dog Speak" onclick="Dog.communicate()" />
+			<input type="button" value="Make the Cow Speak" onclick="Cow.communicate()" />
+		</form>	
+	
+	</body>
+</html>

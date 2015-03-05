@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Lab 6 - Employee Directory Application</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<script type="text/javascript">
+		
+			/*
+			
+				For this lab, do an Ajax request to call employeeselectlist.php when
+				the page has loaded.  Copy the response into the div with the id employees.
+				
+				That response will contain a select list that has an id of employeeList.
+				Rig this select list with a change event handler or listener that will 
+				cause a second request to employeedetail.php to occur.  The employeedetail.php
+				script expects a single parameter called id to be passed to it by the GET
+				method.  Copy the response from this Ajax request into the div with the id
+				details.  The result should be an mini-application that lets a user browser
+				directory information about any employee without having to refresh the page
+				each time.
+				
+			
+			
+			*/
+			
+			function createXHR() {
+			
+				try {
+					// This will work for IE 7+ and all non-IE browsers
+					var xhr = new XMLHttpRequest();
+				}
+				catch(e)
+				{
+					// For IE 6 and earlier ...
+					var ieXHRVersions = ["MSXML2.XMLHttp.7.0", "MSXML2.XMLHttp.6.0", "MSXML2.XMLHttp.5.0", "MSXML2.XMLHttp.4.0", "MSXML2.XMLHttp.3.0", "MSXML2.XMLHttp", "Microsoft.XMLHttp"];
+					
+					var i;
+					for (i=0; i < ieXHRVersions.length; i++)
+					{
+						try
+						{
+							var xhr = new ActiveXObject(ieXHRVersions[i]);
+							break;
+						}
+						catch(e1)
+						{
+							// Nothing to do except move on and try the next known version ...
+						}
+					}
+				}
+				return xhr;
+			
+			}
+			
+			window.onload = function () {
+				var xhr = createXHR(); 
+				// Step 1 - Set up but do not execute the request
+				xhr.open("GET", "employeeselectlist.php", true);
+			
+				// Step 2 - Create your callaback function
+				xhr.onreadystatechange = function () {
+					
+					if (xhr.readyState == 4 && xhr.status == 200) {
+						
+						var employeeList = document.getElementById("employees").innerHTML = xhr.responseText;
+						var employees = document.getElementById("employeeList").onchange = getDetail;
+					}
+				}
+				
+				// Step 3 - Execute the request
+				xhr.send(null);
+			}
+			
+			function getDetail () {
+				
+				var empList = document.getElementById("employeeList");
+				var empID = empList.options[empList.selectedIndex].value;
+				if (empID > 0) {
+					var xhr = createXHR(); 
+					// Step 1 - Set up but do not execute the request
+					xhr.open("GET", "employeedetail.php?id=" + empID, true);
+				
+					// Step 2 - Create your callaback function
+					xhr.onreadystatechange = function () {
+						
+						if (xhr.readyState == 4 && xhr.status == 200) {
+							var employees = document.getElementById("details").innerHTML = xhr.responseText;
+						}
+					}
+					
+					// Step 3 - Execute the request
+					xhr.send(null);
+				} 
+			
+			}
+			
+			
+			
+		</script>
+	</head>
+	<body>
+	
+		<h1>Employee Directory</h1>
+		
+		<div id="employees"></div>
+		<div id="details"></div>
+	
+	</body>
+</html>
+

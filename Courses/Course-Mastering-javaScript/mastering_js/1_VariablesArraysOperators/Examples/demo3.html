@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Array length Property</title>
+		<script type="text/javascript">
+		
+			// Array Length
+			
+			var a;
+			var primeNumbers = new Array();
+			
+			a = primeNumbers.length;  // a=0
+			
+			primeNumbers[0] = 1;
+			primeNumbers[1] = 2;
+			primeNumbers[2] = 3;
+			primeNumbers[3] = 5;
+			primeNumbers[4] = 7;
+			
+			a = primeNumbers.length;  // a=5
+			
+			console.log(a);
+			
+			/*
+			
+			   The length can be helpful when adding a new element
+			   to the array when you don't know the current length
+			
+			*/
+			
+			primeNumbers[primeNumbers.length] = 11;
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>JavaScript Closures</title>
+		<script type="text/javascript">
+
+		function setEvents(){
+			
+			var msg1 = "I was created while setEvents was executing.";
+			var msg2 = "So was I!";
+			
+			document.getElementById("btn1").onclick = function(){alert(msg1);}
+			document.getElementById("btn2").onclick = function(){alert(msg2);}
+			
+			alert("The setEvents function is now ending.");
+		
+		}
+		
+		window.onload = setEvents;
+		
+		</script>
+	</head>
+	<body>
+	
+		<form>
+			<input type="button" value="See Message 1" id="btn1" />
+			<input type="button" value="See Message 2" id="btn2" />
+		</form>
+	
+	</body>
+</html>

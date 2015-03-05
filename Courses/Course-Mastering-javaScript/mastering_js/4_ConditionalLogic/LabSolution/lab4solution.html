@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Lab 4</title>
+		<script type="text/javascript">
+		
+		// Possible Solution to Exercise 4
+
+		var operators = new Array("+", "-", "*", "/", "%");
+		var high = 100;
+		var low = 0;
+
+		var operand1 = Math.round(Math.random() * (high - low) + low);
+		var operand2 = Math.round(Math.random() * (high - low) + low);
+		var operation = Math.round(Math.random() * (4 - 0) + 0);
+
+		if (operand2 == 0 && operation >= 3) {
+
+		   console.log("Division by zero is illegal!");
+
+		} else {
+
+		   // Assemble the command
+		   var command = operand1 + operators[operation] + operand2;
+
+		   // Execute the command
+		   console.log(operand1, operators[operation], operand2);
+		   console.log(command, " = ", eval(command));
+
+		};
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

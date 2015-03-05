@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Modifying the Prototype for a Native JavaScript Object</title>
+		<script type="text/javascript">
+			
+			
+			var states = ["Washington", "Oregon", "California"];
+		
+			Array.prototype.buildSortedList = function () {
+			
+				var list = "";
+				this.sort();
+				
+				for (var i=0; i < this.length; i++) {
+					list += " *" + this[i] + "\n"
+				}
+				
+				alert(list);
+			
+			}	
+			
+			states.buildSortedList(); 
+			
+			// Evil stuff.  It's essentially a backdoor to native methods that allow us to muck with the stuff.
+			
+		</script>
+	</head>
+	<body>
+	
+	
+	</body>
+</html>

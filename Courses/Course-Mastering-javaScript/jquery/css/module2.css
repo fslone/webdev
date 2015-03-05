@@ -1,0 +1,94 @@
+/*
+	Style sheet for Module 2 examples
+*/
+
+body {
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+	font-size: 12px;
+}
+
+div {
+	margin-bottom: 20px;
+	padding: 10px;
+}
+
+.hidden {
+	display: none;
+}
+
+.invert {
+	background-color: black;
+	color: white;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+.noUnderline {
+	text-decoration: none;
+}
+
+.bigger {
+	font-size: xx-large;
+}
+
+.smaller {
+	font-size: smaller;
+}
+
+.red {
+	color: red;
+}
+
+.green {
+	color: green;
+}
+
+.blue {
+	color: blue;
+}
+
+.goldBG {
+	background-color: gold;
+}
+
+.silverBG {
+	background-color: silver;
+}
+
+.redBG {
+	background-color: red;
+}
+
+.redBorder {
+	border: 1px solid red;
+}
+
+.blueBorder {
+	border: 1px solid blue;
+}
+
+.greenBorder {
+	border: 1px solid green;
+}
+
+.blackBorder {
+	border: 1px solid black;
+}
+
+.oddRows {
+	background-color: #eeeeee;
+}
+
+.evenRows {
+	background-color: #aaaaaa;
+}

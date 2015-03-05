@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Lab 3</title>
+		<script type="text/javascript">
+		
+		/*
+
+		   Exercise 3 - Calculating the Time Span Between Two Dates
+
+		   In this exercise, you will compute the number of days, minutes,
+		   hours, and seconds between two days.  Your instructor will review
+		   the computational logic with you.  Some useful values are
+		   defined for you below.
+
+		*/
+
+		// Useful constants
+		var secsPerMinute = 60;
+		var secsPerHour = 60 * 60;
+		var secsPerDay = 24 * 60 * 60;
+		
+		var rightNow = new Date();
+		var christmas = new Date("December 25, 2011 00:00:00");
+
+		var msTilChristmas = christmas.getTime() - rightNow.getTime();
+		var secsTilChristmas = Math.round(msTilChristmas/1000);
+
+		var days = Math.floor(secsTilChristmas/secsPerDay);
+		secsTilChristmas -= days * secsPerDay;
+
+		var hours = Math.floor(secsTilChristmas/secsPerHour);
+		secsTilChristmas -= hours * secsPerHour;
+
+		var mins = Math.floor(secsTilChristmas/secsPerMinute);
+		secsTilChristmas -= mins * secsPerMinute;
+
+		console.log(days, " days, ", hours, " hours, ", mins, " minutes, ", secsTilChristmas, " seconds.");
+		
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

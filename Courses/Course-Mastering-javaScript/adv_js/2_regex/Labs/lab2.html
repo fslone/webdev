@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Using Regular Expressions to Standardize a Data Format</title>
+		<script type="text/javascript">
+			
+			/*
+			
+			One source of developer (and database administrator) frustration occurs
+			when end users use a variety of formats to enter data that should be in
+			a standard format.  For example, one user may enter her home value as
+			$575,500.00 while another may enter his as 627750.  You can help alleviate 
+			this problem using regular expressions, backreferences and JavaScript
+			string methods.
+			
+			For this lab, complete the formatPhone function called by a click on the
+			button below.  Your function should accept the text field object being passed
+			and check the value of the field against a regular expression that allows 
+			some flexibility in how the phone number is entered.  Try to make your
+			regular expression accommodate the following:
+			
+			  1.  Area code with or without parentheses
+			  2.  Area code's first digit cannot be 0 or 1.
+			  3.  Groups of numbers can be separated by a space, a dash or a period.
+			  4.  Separator character between groups is optional
+			  
+			If the data entered matches your regular expression, use the expression
+			together with the JavaScript replace() method to reformat the phone
+			number in the field into the following format:  ###-###-###
+			
+			If the data entered does not match, be sure to let the user know and
+			clear out the field so a new number can be entered.
+			
+			*/
+			
+			// Backreferences
+			// var phoneCandidate = window.prompt("Please enter your Phone Number:", "");
+
+			// Set up the regular expressions
+			// var reSSN = /^\d{3}[\- ]?\d{2}[\- ]?\d{4}$/;
+			
+			var rePhone = /^\(?([2-9]\d{2})\)?[\-\. ]?([2-9]\d{2})[\-\. ]?(\d{4})$/;
+
+			function formatPhone (phoneField) {
+				if (rePhone.test(phoneField.value)) {
+					phoneField.value = phoneField.value.replace(rePhone, "$1-$2-$3");
+				} else {
+					alert("Invalid phone number, try again!");
+					phoneField.value = "";
+				}
+			}
+			
+			
+			
+		</script>
+	</head>
+	<body>
+	
+	<h1>Telephone Number Clean-Up</h1>
+	
+	<p>Please enter a telephone number and then click the Format button to put in into a standard 
+	###-###-#### format.</p>
+	
+	<form>
+	
+	<input type="text" id="phone" size="20" /> 
+	
+	<input type="button" id="btn" value="Format" onclick="formatPhone(document.getElementById('phone'))" />
+	
+	</form>
+	
+	</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Using toggle() and hover()</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<link rel="stylesheet" href="../../css/module3.css" />
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script type="text/javascript">
+			
+		$(function() {
+			
+			// .toggle() as it relates to visibility
+			// $("p").toggle(2000);
+			
+			// .toggle() as it relates to events
+			$("p").toggle(
+			
+				function(){
+					$(this).removeClass().addClass("redBG");
+				},
+				function(){
+					$(this).removeClass().addClass("greenBG");
+				},
+				function(){
+					$(this).removeClass().addClass("whiteBG");
+				}
+			
+			);
+			
+		});
+			
+		</script>
+	</head>
+	<body>
+		
+	<h1>The toggle() Method</h1>	
+	
+	<p>The essence of all jokes, of all comedy, seems to be an honest or well intended halfness; a non performance of that which is pretended to be performed, at the same time that one is giving loud pledges of performance. The balking of the intellect, is comedy and it announces itself in the pleasant spasms we call laughter. -- Ralph Waldo Emerson</p>
+	
+	<p>You can only be young once. But you can always be immature. -- Dave Barry</p>
+	
+	<p>Democracy is the theory that the common people know what they want and deserve to get it good and hard. -- H.L. Mencken</p>
+	
+	<hr />
+	
+	<h1>The hover() Method</h1>
+	
+	<div id="outerRegion"><div id="innerRegion"></div></div>
+	
+	<hr />
+	
+	<div id="content"></div>
+	
+	
+	</body>
+</html>
+

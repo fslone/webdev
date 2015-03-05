@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Pass by Value vs. Pass by Reference</title>
+		<script type="text/javascript">
+
+			// Pass by Value or Reference
+			
+			var color = "red";
+			var colors = new Array("blue", "green", "yellow");
+			
+			changeScalar(color);  // color is still "red" after calling the function
+			changeArray(colors);  // colors=("blue","gray","yellow") after the function call
+
+			console.log(color);			
+			console.log(colors);			
+			
+			function changeScalar(c) {
+			
+			   c = "orange";  //  c is initially "red" and then changes to "orange"
+			   var color = "pink";  //  this color is local to the function
+			
+			}
+			
+			function changeArray(a) {
+			
+			   a[1] = "gray";  //  This changes the second item in colors
+			
+			}			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

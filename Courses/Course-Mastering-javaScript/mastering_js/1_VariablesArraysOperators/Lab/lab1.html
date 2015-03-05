@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Lab 1</title>
+		<script type="text/javascript">
+		
+		/*
+
+		  In this exercise, you'll use the operators you've learned about
+		  together with the eval() command to do calculations.
+
+		  The eval() function lets us dynamically build and execute
+		  JavaScript commands while our scripts are running.  For example:
+
+			 var a = 10;
+			 var b = 3;
+			 var command = "var c = a/b";
+			 eval(command);  // c=3.3333333333333...
+
+		  Try this yourself with the different mathematical
+		  and comparison operators discussed in this module.
+		  
+		  eval = some performace issues. another instance. better to inject into DOM a document.createElement and run eval there.
+
+		*/
+			
+		var a = 31;
+		var b = 7;
+		var command = "var c = a / b";	
+		eval(command);
+		console.log(c);
+
+		var num1 = 10;
+		var num2 = 20;			
+		var str1 = "WebMD";
+		var str2 = "JavaScript";
+
+		var cmd1 = "var a = num1 + num2";
+		eval(cmd1);
+		console.log(a);
+		
+		var cmd2 = "var b = str1 + str2";
+		eval(cmd2);
+		console.log(b);
+		
+		var cmd3 = "var c = num1 >= num2";
+		eval(cmd3);
+		console.log(c);
+		
+		var cmd4 = "var d = str1 - num2";
+		eval(cmd4);
+		console.log(d);
+		
+		var cmd5 = "var e = (num1 == (num2/'2'))";
+		eval(cmd5);
+		console.log(e);
+
+		var cmd6 = "var f = (num1 === (num2/'2'))";
+		eval(cmd6);
+		console.log(f);
+		
+
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

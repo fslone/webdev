@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Array Methods</title>
+		<script type="text/javascript">
+		
+			// Array Methods
+			
+			var a, b, c, d, e;
+			var oddNumbers = new Array(1, 3, 5, 7, 9);
+			
+			// join() assembles all array values
+			// into a delimited string
+			
+			a = oddNumbers.join("|");  // a="1|3|5|7|9"
+			console.log(a);
+			
+			// pop() removes the last item in the array
+			b = oddNumbers.pop();  // b=9
+			console.log(b);			
+			
+			// shift removes the first item in the array
+			c = oddNumbers.shift();  //  c=1
+			console.log(c);			
+			console.log(oddNumbers);
+			
+			// push() adds an item to the end of the array
+			oddNumbers.push(b);  // oddNumbers=(3,5,7,9)
+			
+			// unshift adds an item to the front of the array
+			
+			oddNumbers.unshift(c);  // oddNumbers=(1,3,5,7,9)
+			
+			// reverse reverses the order of the elements
+			
+			oddNumbers.reverse();  // oddNumbers=(9,7,5,3,1)
+			
+			// sort sorts the array elements
+			
+			oddNumbers.sort();  //  oddNumbers=(1,3,5,7,9)
+			oddNumbers.push(11);
+			oddNumbers.sort(function(a,b) {return b < a}); // oddNumbers=(1,3,5,7,9,11) 
+			console.log("After Sort() : " + oddNumbers);
+			// slice extracts a part of the array
+			
+			d = oddNumbers.slice(2,3)  // d=(5,7)
+			
+			// splice removes a specified number of items starting from a specified position
+			
+			e = oddNumbers.splice(1,3,13,15) // e=(3,5,7), oddNumbers=(1,9)			
+			console.log(e);
+			console.log(oddNumbers);
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Lab 4 - Employee Editing Application</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<link rel="stylesheet" href="../../css/module4lab.css" />
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script type="text/javascript">
+			
+		/*
+		
+			Use jQuery to complete an Ajax-based employee editing application.  
+			
+			The basic steps are:
+			
+			(1) Make an Ajax request to employeeselectlist.php, which returns 
+				HTML code for a select list showing the employees by name.  The 
+				list should be displayed in the div with the id employees.
+				
+			(2) Rig the select list so that when the value changes, a POST
+				request to employeeeditform.php, passing the employee's ID 
+				number as a parameter called id.  The script will return a 
+				fragment of HTML that creates a short form where edits can 
+				be made.  This form should be displayed in the div with the 
+				id editingForm.
+				
+			(3) Rig the text fields in the edit form so that a change to any 
+				of them	initiates a POST request to employeeupdate.php, 
+				passing it 3 parameters: id, field, and newValue.  The 
+				script uses these parameters to build and execute an 
+				UPDATE query.
+				
+			(4) If the update succeeds, display an appropriate message in the
+				div with the id updateMessage and then fade the message out 
+				over several seconds.
+				
+				Also, since a first or last name may have been updated, you 
+				should also	update the select list in the div with the id 
+				employees.  
+				
+				If the query fails, just display an message to that effect 
+				and then fade it out.						
+		
+		*/
+		
+		$(function() {
+		
+				
+			
+		});
+			
+		</script>
+	</head>
+	<body>
+	
+		<h1>Employee Editor</h1>
+		
+		<div id="employees"></div>
+		<div id="editingForm"></div>
+		<div id="updateMessage"></div>
+	
+	</body>
+</html>
+

@@ -1,0 +1,71 @@
+/*
+	Style sheet for Module 3 examples
+*/
+
+body {
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+	font-size: 12px;
+}
+
+#mouseRegion {
+	margin-bottom: 20px;
+	padding: 10px;
+	width: 200px;
+	height: 124px;
+	background-color: blue;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#content {
+	font-size: larger;
+	color: red;
+	font-weight: bold;
+	text-align: center;
+}
+
+input {
+	margin-bottom: 10px;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.redBG {
+	background-color: red;
+}
+
+.yellowBG {
+	background-color: yellow;
+}
+
+.greenBG {
+	background-color: green;
+}
+
+.whiteBG {
+	background-color: white;
+}
+
+#outerRegion {
+	margin-bottom: 20px;
+	padding: 10px;
+	width: 200px;
+	height: 200px;
+	background-color: blue;
+	vertical-align: middle;
+}
+
+#innerRegion {
+	margin-bottom: 20px;
+	padding: 10px;
+	width: 100px;
+	height: 100px;
+	background-color: red;
+	vertical-align: middle;
+}
+
+
+

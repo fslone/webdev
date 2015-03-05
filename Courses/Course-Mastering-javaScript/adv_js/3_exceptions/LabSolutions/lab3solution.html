@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Possible Solution to Lab Exercise #3</title>
+		<script type="text/javascript">
+			
+			var a = 21;
+			var b = 2;
+			var c = -5;
+			var d = 14;
+
+			/*
+
+			  The modulo operator is essentially division and it's illegal
+			  to divide by zero.
+
+			*/
+
+			try {
+
+				 var e = d % (b-2);
+
+			} catch (ex) {
+
+				 var e = "undefined";
+
+			} finally {
+			
+				alert(e);  // What happens here?!?
+
+				 if (isNaN(e) || e == "undefined") {
+
+					alert("Could not determine a numerical value for e due to division by zero.");
+
+				 } else {
+
+					alert("The value of e is " + e + ".");
+
+				 };
+
+			}
+
+			var f = c * (a+d);
+
+			var g = d--;
+
+			/*
+
+				You can't take the square root of a negative number!
+
+			*/
+
+			try {
+
+				 var h = Math.pow(c, 0.5);
+
+			} catch(ex) {
+
+				 h = "undefined";
+
+			} finally {
+
+				alert(h);  // What happens here?!?
+			
+				if (isNaN(h) || h == "undefined") {
+
+					  alert("Could not determine a numerical value for h because you can't take the square root of a negative number.");
+
+				 } else {
+
+					  alert("The value of h is +/- " + h + ".");
+
+				 };
+
+			};
+
+			var i = eval("b + a * c - d");
+
+			/*
+
+				The object myObject does not exist in this script!
+
+			*/
+
+			try {
+
+				 var j = myObject.average(a,b,c,d);
+
+			} catch(ex) {
+
+				 var j = "Not defined";
+
+			} finally {
+
+				alert(j);  // As expected
+			
+				if (isNaN(j) || j == " Not defined") {
+
+					 alert("Could not determine a numerical value for j because of a non-existent object");
+
+				} else {
+
+					  alert("The value of j is " + j + ".");
+
+				};
+
+			};			
+			
+		</script>
+	</head>
+	<body>
+	
+	
+	</body>
+</html>

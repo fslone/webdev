@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Lab 4: Creating a Simple Calculator</title>
+		<script type="text/javascript">
+
+			var resultsComputed = 0;
+		
+			function addEvent(domElement, event, callback) {
+			
+				if (domElement.addEventListener) {
+				
+					domElement.addEventListener(event, callback, false);
+					return true;
+					
+				} else if (domElement.attachEvent) {
+				
+					return domElement.attachEvent("on" + event, callback);
+			
+				} else {
+				
+					return false;
+				
+				}
+			
+			}
+			
+			function computeResult(evtObj) {
+				
+				var selList = document.getElementById("operation");
+				
+				switch(selList.options[selList.selectedIndex].value) {
+				
+					case "+":
+						document.getElementById("result").value = Number(document.getElementById("num1").value) + Number(document.getElementById("num2").value);
+						break;
+					case "-":
+						document.getElementById("result").value = document.getElementById("num1").value - document.getElementById("num2").value;
+						break;
+					case "*":
+						document.getElementById("result").value = document.getElementById("num1").value * document.getElementById("num2").value;
+						break;
+					default: 
+						if (document.getElementById("num2").value!=0) {
+							document.getElementById("result").value = document.getElementById("num1").value / document.getElementById("num2").value;
+						} else {
+							document.getElementById("result").value = "ERROR";
+						}
+				
+				}
+			
+			}
+			
+			function incrementCount(evtObj) {
+			
+				document.getElementById("numResults").innerHTML = ++resultsComputed;
+			
+			}
+			
+			window.onload = function() {
+			
+				addEvent(document.getElementById("btn"), "click", computeResult);
+			
+				addEvent(document.getElementById("btn"), "click", incrementCount);
+			
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+	
+		<h1>A Simple Calculator</h1>
+		
+		<p>Enter a number in each box and choose an operation from the list.  Then click the Compute button to see the result.</p>
+		
+		<form>
+		
+			<input type="text" id="num1" size="5" /> 
+			<select id="operation">
+			<option>+</option>
+			<option>-</option>
+			<option>*</option>
+			<option>/</option>
+			</select>
+			<input type="text" id="num2" size="5" /> 
+			= 
+			<input type="text" id="result" size="8" /> 
+			<input type="button" id="btn" value="Compute" />
+		
+		</form>	
+		
+		<hr />
+		
+		<p>Results Computed: <span id="numResults">0</span></p>
+	
+	</body>
+</html>

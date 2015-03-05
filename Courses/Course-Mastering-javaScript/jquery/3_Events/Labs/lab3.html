@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	
+	<head>
+		
+		<title>jQuery Airways</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<link rel="stylesheet" href="../../css/module3lab.css" />
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script type="text/javascript">
+			
+		/*
+		 
+		 Lab #3 - Use jQuery to do the following:
+		 
+		 (1) Hide all divs that show options for each section heading
+		 (2) Rig each checkbox so that it acts as a toggle for displaying/hiding 
+			 that section's options
+		 (3) Rig each radio button so that a summary of the ticket options 
+			 is presented in the empty div at the bottom of the page 
+		 (4) Develop an object that contains a schedule of prices for each 
+			 option and then amend your summary to show the total price of 
+			 all the options
+		  
+		 */
+		
+		
+		$(function(){
+							
+			
+		});
+			
+		</script>
+		
+	</head>
+	
+	<body>
+	
+	<h1>jQuery Airways Menu of Services</h1>
+	
+	<form>
+		<div class="sectionHead">
+			<input type="checkbox" name="cabin" id="cabin" /> Service Cabin
+		</div>
+		<div class="optionsList" id="cabin_options">
+			<input type="radio" name="cabinChoice" value="First" /> First 
+			<input type="radio" name="cabinChoice" value="Business" /> Business
+			<input type="radio" name="cabinChoice" value="Economy" /> Economy 
+			<input type="radio" name="cabinChoice" value="Steerage" /> Steerage
+		</div>
+		<div class="sectionHead">
+			<input type="checkbox" name="seat" id="seat" /> Seat Type
+		</div>
+		<div class="optionsList" id="seat_options">
+			<input type="radio" name="seatChoice" value="Window" /> Window 
+			<input type="radio" name="seatChoice" value="Middle" /> Middle 
+			<input type="radio" name="seatChoice" value="Aisle" /> Aisle 
+		</div>
+		<div class="sectionHead">
+			<input type="checkbox" name="meal" id="meal" /> Meal
+		</div>
+		<div class="optionsList" id="meal_options">
+			<input type="radio" name="mealChoice" value="Regular" /> Regular 
+			<input type="radio" name="mealChoice" value="Vegan" /> Vegan 
+			<input type="radio" name="mealChoice" value="Kosher" /> Kosher
+			<input type="radio" name="mealChoice" value="Decline" /> Hell, no! 
+		</div>
+		<div class="sectionHead">
+			<input type="checkbox" name="service" id="service" /> Service
+		</div>
+		<div class="optionsList" id="service_options">
+			<input type="radio" name="serviceChoice" value="Good" /> Pleasant  
+			<input type="radio" name="serviceChoice" value="Average" /> Phoning It In  
+			<input type="radio" name="serviceChoice" value="Bad" /> Surly
+		</div>
+	</form>
+	
+	<hr />
+	
+	<div id="summary"></div>
+		
+	</body>
+	
+</html>

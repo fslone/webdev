@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Lab 5</title>
+		<script type="text/javascript">
+		
+		/*
+
+		  Exercise 5 - Processing a String Character by Character
+
+		  In this exercise, you will break down a string of arbitrary
+		  length and count the instances of each letter.  An associative
+		  array has been set up for you with one entry for each letter
+		  of the alphabet (for simplicity, make your string all lowercase
+		  letters).  When you're done processing the string, your
+		  script should output all non-zero letter counts.
+
+		*/
+
+		// Set up one counter for each lowercase letter
+		var letters = "abcdefghijklmnopqrstuvwxyz";
+		var counters = [];
+		var i;
+
+		for (i=0; i<letters.length; i++) {
+
+		  counters[letters.charAt(i)] = 0;
+
+		};
+		
+		var myString = "I Like Homebrew Beer";
+		var myStringLC = myString.toLowerCase();
+		var j, thisChar;
+		
+		for (j=0; j<myString.length; j++) {
+
+		   thisChar = myStringLC.charAt(j);
+		   counters[thisChar]++;
+			
+		};
+
+		for (i=0; i<letters.length; i++) {
+
+		  thisChar = letters.charAt(i);
+		  if (counters[thisChar] > 0) {
+			console.log("The letter ", thisChar, " appears ", counters[thisChar], " times.");
+		  };
+
+		};			
+		
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>parseInt() and parseFloat()</title>
+		<script type="text/javascript">
+			
+			// parseInt, parseFloat
+			// cannot help if number is not in the front of the string. NaN see "c"
+			
+			var race1 = "26.2 miles";
+			var race2 = "A marathon is 26.2 miles.";
+			
+			var a = parseInt(race1);  // a=26
+			
+			var b = parseFloat(race1);  // b=26.2
+			
+			var c = parseInt(race2);  // c=NaN ("Not a Number")
+			
+			var d = parseFloat(race2); // d=NaN			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>if Statements</title>
+		<script type="text/javascript">
+			
+			// If
+
+			var age = 20;
+			
+			if (age >= 21) {			
+			   alert("You can vote and buy a drink.");
+			} else if (age >= 18) {
+			   alert("You can vote but you can't buy a drink.");
+			} else {
+			   alert("You cannot vote or buy a drink.");
+			};
+			
+			// Compound conditions
+			
+			var isCitizen = true;
+			var hasGreenCard = false;
+			
+			if (age >= 18 && isCitizen) {
+				alert("You can vote.");
+			};
+			
+			if (age >= 16 && (isCitizen || hasGreenCard)) {
+			   alert("You can work in the US.");
+			};
+			
+			// Short-circuit evaluation
+			
+			var password = "s1gnM3In";
+			
+			if (typeof password == "string" && password == "s1gnM3In") {
+			
+			   alert("Access granted!");
+			
+			} else {
+			
+			   alert("Access denied!");
+			
+			};
+
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

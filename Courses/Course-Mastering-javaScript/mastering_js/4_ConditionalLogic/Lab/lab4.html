@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Lab 4</title>
+		<script type="text/javascript">
+		
+		/*
+
+		  Exercise 4 - An Improved Calculator
+
+		  In this exercise, you'll extend the calculator script from
+		  Exercise 1 to include:
+
+		  1) a randomly generated operation
+		  2) two randomly generated operands
+		  3) a check to make sure you don't divide by zero
+
+		  An array with the different operator notations is included
+		  below, as well as low and high values for the operands.
+		  
+		*/
+
+
+		var operators = new Array("+", "-", "*", "/", "%");
+		var high = 100;
+		var low = 0;
+		
+		var operand1 = Math.round(Math.random() * (high - low) + low);
+		var operand2 = Math.round(Math.random() * (high - low) + low);
+		var operation = Math.round(Math.random() * (4 - 0) + 0);
+		
+		if (operand2 == 0 && operation >= 3) {
+
+		   console.log("Division by zero is illegal!");
+
+		} else {
+
+		   // Assemble the command
+		   var command = operand1 + operators[operation] + operand2;
+
+		   // Execute the command
+		   console.log(operand1, operators[operation], operand2);
+		   console.log(command, " = ", eval(command));
+
+		};
+
+
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

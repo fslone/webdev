@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Date Object Methods</title>
+		<script type="text/javascript">
+			
+			// Date
+			
+			var RightNow = new Date();
+			
+			console.log(RightNow.toLocaleString());  // converts date/time to local format
+			console.log(RightNow.toGMTString());  // expresses date/time with respect to GMT
+			
+			// Most Date object methods retrieve a particular part of the
+			// date (month, day, year) or time (hours, minutes, seconds)
+			
+			console.log(RightNow.getDate());  // day of the month (1-31)
+			console.log(RightNow.getDay()); // day of the week (0-6; Sun-Sat)
+			console.log(RightNow.getMonth());  // month (0-11; Jan-Dec)
+			console.log(RightNow.getFullYear());  // 4-digit year
+			console.log(RightNow.getHours());  // hours on the clock (0-23)
+			console.log(RightNow.getMinutes()); // minutes on the clock (0-59)
+			console.log(RightNow.getSeconds()); // seconds on the clock (0-59)
+			console.log(RightNow.getMilliseconds());  // milliseconds on the clock
+			
+			// getTime() retrieves the number of milliseconds since 1/1/1970
+			// Useful for computing time between two dates
+			
+			var newYear = new Date("January 01, 2012 00:00:00");
+			
+			var msTilNewYear = newYear.getTime() - RightNow.getTime();
+			var secsTilNewYear = msTilNewYear/1000;
+			console.log("There are " + secsTilNewYear + " seconds until the new year.");			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

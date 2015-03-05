@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Lab 5: Adding New Content to a Page</title>
+		<style type="text/css">
+		
+			.itemHeading {
+				font-family: Arial,Helvetica,sans-serif;
+				font-size: 24px;
+				font-weight: bold;
+			}
+			
+			.itemText {
+				font-family: Arial,Helvetica,sans-serif;
+				font-size: 14px;			
+			}
+		
+		</style>
+		<script type="text/javascript">
+
+			/*
+			
+				For this lab, rig the button below so that when it is clicked, the content in
+				the text field and text area are used to create a new heading and paragraph 
+				in the div with the id content.
+				
+				Additionally, apply the style classes in the style tag above to each new
+				heading and paragraph you create.  In markup, this is normally done with the
+				class attribute, but this does not work equally well in all browsers.  Instead
+				use the className property available on each DOM element so that your 
+				solution is cross-browser compatible.			
+			
+			*/
+		
+		
+			function addEvent(domElement, event, callback) {
+			
+				if (domElement.addEventListener) {
+				
+					domElement.addEventListener(event, callback, false);
+					return true;
+					
+				} else if (domElement.attachEvent) {
+				
+					return domElement.attachEvent("on" + event, callback);
+			
+				} else {
+				
+					return false;
+				
+				}
+			
+			}
+			
+
+			window.onload = function () {
+				//removeSpaceNodes(document.body);
+				addEvent(document.getElementById("btn"), "click", addContent);
+				
+			}
+			
+			function addContent() {
+				
+				// document.getElementById("languages").innerHTML += "<li>"
+				// + document.getElementById("newLanguage").value + "</li>"
+											
+				var h2 = document.createElement("h2");
+				var h2Text = document.createTextNode(document.getElementById("heading").value);
+				h2.appendChild(h2Text);
+				h2.className = "itemHeading node";
+
+				var p = document.createElement("p");
+				var pText = document.createTextNode(document.getElementById("paragraph").value);
+				p.appendChild(pText);
+				p.className = "itemText node";
+				
+				// Now add finished element to the DOM tree
+				/* 
+				document.getElementById("content").appendChild(h2);
+				document.getElementById("heading").value = "";
+				
+				document.getElementById("content").appendChild(p);
+				document.getElementById("paragraph").value = "";
+				*/
+				
+				// or
+				
+				var outputDiv = document.getElementById("content");
+				outputDiv.appendChild(h2);
+				outputDiv.appendChild(p);
+			}
+
+			
+		</script>
+	</head>
+	<body>
+	
+		<h1>Adding New Content to a Page</h1>
+		
+		<p>Enter a heading and a paragraph below and then click Add to add them to the div with 
+		the id content.</p>
+		
+		<div id="content"></div>
+		
+		<hr />
+		
+		<form>
+		
+			<input type="text" id="heading" size="40" />
+			<br />
+			<textarea id="paragraph" rows="10" cols="50" wrap></textarea>
+			<br />
+			<input type="button" id="btn" value="Add" />
+		
+		</form>	
+			
+	</body>
+</html>

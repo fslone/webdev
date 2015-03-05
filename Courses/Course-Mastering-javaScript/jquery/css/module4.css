@@ -1,0 +1,18 @@
+/*
+	Style sheet for Module 4 examples
+*/
+
+body {
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+	font-size: 12px;
+}
+
+div {
+	border: 1px solid black;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+.content {
+	display: none;
+}

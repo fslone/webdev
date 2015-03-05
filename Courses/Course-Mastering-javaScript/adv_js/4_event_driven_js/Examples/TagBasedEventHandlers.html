@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Event-Driven JavaScript with Tag-Based Event Listeners</title>
+	</head>
+	<body onload="document.bgColor='navy'; document.fgColor='gold';">
+	
+		<form>
+			<b>First Name:</b> 
+				<input type="text" name="firstname" size="20" 
+				onblur="if (this.value.length == 0) {alert('please provide your first name')}" />
+			<input type="button" value="Don't Click Me" onclick="alert('I said don\'t click me.')" />
+		</form>
+		
+	</body>
+</html>

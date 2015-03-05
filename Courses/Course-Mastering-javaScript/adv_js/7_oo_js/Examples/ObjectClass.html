@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Defining a JavaScript Object Class</title>
+		<script type="text/javascript">
+
+			var colors1 = ["white", "black"];
+			var colors2 = ["brown", "white", "black"];
+			var colors3 = ["white", "brown"];
+
+			// Make a constructor function for creating new animals
+			function Animal(NAME, OWNER, COLORS, SOUND){
+				
+				this.name = NAME;
+				this.owner = OWNER;
+				this.colors = COLORS;
+				
+				this.communicate = function(){
+					alert(SOUND);
+				}
+				
+			}
+			
+			var Cat = new Animal("Socks", "Mary", colors1, "Meow!");
+			var Dog = new Animal("Rover", "Bob", colors2, "Woof!");
+			var Cow = new Animal("Bessie", "Farmer Jones", colors3, "Moo!");
+			
+
+		</script>
+	</head>
+	<body>
+	
+		<form>
+			<input type="button" value="Make the Cat Speak" onclick="Cat.communicate();" />
+			<input type="button" value="Make the Dog Speak" onclick="Dog.communicate();" />
+			<input type="button" value="Make the Cow Speak" onclick="Cow.communicate();" />
+		</form>	
+	
+	</body>
+</html>

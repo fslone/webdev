@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Creating Event Listeners</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<link rel="stylesheet" href="../../css/module3.css" />
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script type="text/javascript">
+			
+		$(function() {
+			
+			$("p").dblclick(function(evtObj) {
+				// this = DOM element that experienced the event
+				// evtObj.target = DOM element that experienced the event
+				$("#content").text("You Double Clicked on a Quote by " 
+				+ evtObj.target.innerHTML.split("--")[1] + ".");
+			}); 
+
+			$("#mouseRegion").bind("mousemove.will", function(evtObj){
+			
+				$("#content").text("Current Mouse Coordinates: (" + evtObj.pageX + " , " 
+				+ evtObj.pageY + ")");
+			
+			})
+			
+			$(":button").bind("click.will", function(){
+				switch (this.id) {
+					case "b1":
+						$("#typingBox").attr("disabled", "disabled");
+						break;
+					case "b2":
+						$("#content").text($("#typingBox").val());
+						break;
+					case "b3":
+						$("#typingBox").removeAttr("disabled");
+						break;
+				}
+			});
+			
+			/*
+			
+				$("body *").unbind(".will");
+				$("body *").trigger(".will");
+			
+			*/
+			
+		});
+		
+			
+		</script>
+	</head>
+	<body>
+		
+	<h1>Favorite Quotations</h1>	
+	
+	<p>The essence of all jokes, of all comedy, seems to be an honest or well intended halfness; a non performance of that which is pretended to be performed, at the same time that one is giving loud pledges of performance. The balking of the intellect, is comedy and it announces itself in the pleasant spasms we call laughter. -- Ralph Waldo Emerson</p>
+	
+	<p>You can only be young once. But you can always be immature. -- Dave Barry</p>
+	
+	<p>Democracy is the theory that the common people know what they want and deserve to get it good and hard. -- H.L. Mencken</p>
+	
+	<hr />
+	
+	<div id="mouseRegion">Move your mouse over me</div>
+	
+	<hr />
+	
+	<form>
+		<input type="text" name="typehere" id="typingBox" size="30" />
+		<br />
+		<input type="button" id="b1" value="Button 1" /> 
+		<input type="button" id="b2" value="Button 2" />
+		<input type="button" id="b3" value="Button 3" />
+	</form>
+	
+	<hr />
+	
+	<div id="content"></div>
+	
+	
+	</body>
+</html>
+

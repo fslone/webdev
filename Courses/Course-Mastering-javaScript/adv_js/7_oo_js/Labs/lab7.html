@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Lab 7: Creating a JavaScript Object Class</title>
+		<script type="text/javascript">
+
+		/*
+
+		Of course, JavaScript object classes are used to do more useful things than to 
+		create virtual domestic or farm animals.  They are typically used to contain data
+		about a particular entity and to provide an interface to working with that data
+		(a notion called encapsulation).
+		
+		For this lab, create a constructor function for an object class called Employee.
+		At minimum, an instance from this class should accommodate the following
+		properties: first name, last name, job title, salary and status (employed, fired,
+		retired, etc).  You should also define the following instance methods:
+		
+		fire() - sets employee's status to terminated
+		retire() - sets employee's status to retired
+		giveRaise() - accepts a percentage (ex: 0.04) and increases the employees salary
+		by that amount
+		
+		For each method, be sure to display a short message to verify that the targeted
+		property has been changed.  Then create several instances and test your interface.
+		
+
+		*/
+
+			//var colors1 = ["white", "black"];
+			//var colors2 = ["brown", "white", "black"];
+			//var colors3 = ["white", "brown"];
+			
+			function Employee(FNAME, LNAME, TITLE, SALARY) {
+			
+				this.fname = FNAME;
+				this.lname = LNAME;
+				this.title = TITLE;
+				this.salary = SALARY*1;
+				this.status = "New Hire";
+			
+			}
+			
+			Employee.prototype.fire = function() {
+				this.status = "Terminated";
+				console.log(this.fname + " " + this.lname + " is now " + this.status + "!");
+			}
+			
+			Employee.prototype.retire = function() {
+				this.status = "Retired";
+				console.log(this.fname + " " + this.lname + " is now " + this.status + "!");
+			}
+			
+			Employee.prototype.giveRaise = function(percent) {
+				this.salary = ((1 + percent) * this.salary).toFixed(2);
+				console.log(this.fname + " " + this.lname + " now earns $" + this.salary + "!");
+			}
+
+			// Create instances of the Animal class
+			
+			var Ann = new Employee("Ann", "Smith", "Project Manager", 78000);
+			var Bob = new Employee("Bob", "Jenkins", "Sr Marketing Director", 90000);
+			var Will = new Employee("Will", "Bowling", "Sr Web Developer", 105000);
+			
+			Ann.fire();
+			Bob.retire();
+			Will.giveRaise(0.12);
+						
+		</script>
+	</head>
+	<body>
+	
+	
+	</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Lab Exercise #3</title>
+		<script type="text/javascript">
+		
+			/*
+
+			  Lab Exercise 3 - Implementing Structured Exception Handling
+
+			  In this exercise, you'll implement structured exception
+			  handling in a script where things could go wrong in a
+			  number of places.
+
+			  Consider the script below and identify three potential
+			  problems in the code that assigns values to variables 
+			  e, f, g, h, i and j.
+			  
+			  Once you've identified each issue, wrap the
+			  potentially problematic code in a try/catch/finally block
+			  that handles the exception gracefully. The try running the
+			  script for several values of a, b, c, and d to confirm that
+			  your exception handling logic is working as expected.  How many
+			  of the potential problem areas actually turn out to be problems?
+
+			*/
+			
+			 
+			var a = 20;
+			var b = 2;
+			var c = -15;
+			var d = 14;
+			/*
+			var e = d % (b-2); // error
+			var f = c * (a+d);
+			var g = d--;
+			var h = Math.pow(c, 0.5); // error			
+			var i = eval("b + a * c - d");
+			var j = myObject.average(a,b,c,d); // error
+			*/
+			
+			try {
+				// Modulo division by zero produces NaN, so thow your own exception! 
+				if (b == 2) {throw new Error("Modulo Division by zero is Illegal")}; 
+				var e = d % (b-2); // error
+			} catch (ex) {
+				var e = ex.message;
+			} finally {
+				console.log(e);
+			}
+			
+			try {
+				// Taking the square root of a negative number produces NaN, so thow your own exception! 
+				if (c < 0) {throw new Error("Cannot compute the square root of a negative number.")}; 
+				var h = Math.pow(c, 0.5); // error
+			} catch (ex) {
+				var h = ex.message;
+			} finally {
+				console.log(h);
+			}
+			
+			try {
+				// myObject does not exist, but the interpreter will throw this exception 
+				var j = myObject.average(a,b,c,d); // error
+			} catch (ex) {
+				var j = ex.message;
+			} finally {
+				// we can safely reference the variable b
+				console.log(j);
+			}
+			
+						
+			
+		</script>
+	</head>
+	<body>
+	
+	
+	</body>
+</html>

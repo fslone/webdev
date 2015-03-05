@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>A Cross-Browser Ajax Request</title>
+		<script type="text/javascript">
+		
+			function doAjax()
+			{
+				try
+				{
+					// This will work for IE 7+ and all non-IE browsers
+					var xhr = new XMLHttpRequest();
+				}
+				catch(e)
+				{
+					// For IE 6 and earlier ...
+					var ieXHRVersions = ["MSXML2.XMLHttp.7.0", "MSXML2.XMLHttp.6.0", "MSXML2.XMLHttp.5.0", "MSXML2.XMLHttp.4.0", "MSXML2.XMLHttp.3.0", "MSXML2.XMLHttp", "Microsoft.XMLHttp"];
+					
+					var i;
+					for (i=0; i < ieXHRVersions.length; i++)
+					{
+						try
+						{
+							var xhr = new ActiveXObject(ieXHRVersions[i]);
+							break;
+						}
+						catch(e1)
+						{
+							// Nothing to do except move on and try the next known version ...
+						}
+					}
+				}
+				
+				if (!xhr) 
+				{
+					document.getElementById("response").innerHTML="<h1>Ajax not supported</h1>";
+				}
+				else
+				{
+					
+					// Step 1 - Set up but do not execute the request
+					xhr.open("GET", "employeejson.php", true);
+				
+					// Step 2 - Create your callaback function
+					xhr.onreadystatechange = function () {
+						
+						if (xhr.readyState == 4 && xhr.status == 200) {
+							
+							var dataObj = JSON.parse(xhr.responseText);
+							var outputDiv = document.getElementById("response");
+							for (var key in dataObj) {
+								if (key.indexOf("employee") == 0) {
+									outputDiv.innerHTML += dataObj[key] + "<br>"
+								}							
+															
+							}
+							
+						}
+						
+					}
+					
+					// Step 3 - Execute the request
+					xhr.send(null);
+					
+					
+					
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<form>
+			<input type="button" value="Don't Click Me" onclick="doAjax();" />
+		</form>
+		<div id="response"></div>
+	</body>
+</html>

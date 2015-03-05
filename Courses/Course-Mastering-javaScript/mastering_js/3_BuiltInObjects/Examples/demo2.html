@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>The JavaScript Math Object</title>
+		<script type="text/javascript">
+			
+			// Math
+			
+			// The properties of the Math object include frequently
+			// used constants
+			
+			alert(Math.PI);
+			alert(Math.SQRT2);
+			alert(Math.E);  // e is the base for the exponential function
+			alert(Math.LN2);  // the natural logarithm of 2
+			
+			// The methods associated with the Math object are
+			// commonly used mathematical functions
+			
+			alert(Math.abs(-12));  // absolute value
+			alert(Math.max(14,7,29,11));  // maximum of a set of values
+			alert(Math.min(3,-8,13,0));  // minimum of a set of values
+			alert(Math.ceil(4.00001));  // always rounds up
+			alert(Math.floor(3.99999));  // always rounds down
+			alert(Math.round(5.78));  // traditional rounding
+			alert(Math.pow(3,4));  // raises the first number to the second number
+			alert(Math.random());  // returns a random value between 0 and 1
+			
+			// To generate a random integer between two values:
+			
+			var low = 1;
+			var high = 100;
+			var rndFraction = Math.random();
+			var rndNumber = Math.round(rndFraction * (high - low) + low);			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Document Object Model Properties</title>
+		<script type="text/javascript">
+		
+			function addEvent(domElement, event, callback) {
+			
+				if (domElement.addEventListener) {
+				
+					domElement.addEventListener(event, callback, false);
+					return true;
+					
+				} else if (domElement.attachEvent) {
+				
+					return domElement.attachEvent("on" + event, callback);
+			
+				} else {
+				
+					return false;
+				
+				}
+			
+			}
+			
+			function removeSpaceNodes(domElement) {
+			
+				if (domElement.nodeType == 2 || domElement.childNodes.length == 0) {return true;}
+				
+				var thisChild;
+				for (var i=domElement.childNodes.length-1; i>=0; i--) {
+				
+					thisChild = domElement.childNodes[i];
+					if (thisChild.nodeType == 3 && !/\S+$/.test(thisChild.nodeValue)) {
+					
+						domElement.removeChild(thisChild);
+						
+					} else if (thisChild.childNodes.length > 0) {
+					
+						removeSpaceNodes(thisChild);
+					
+					}
+				
+				}
+			
+			}
+			
+			window.onload = function () {
+				removeSpaceNodes(document.body);
+				addEvent(document.getElementById("btn"), "click", addNewLanguage);
+				
+			}
+			
+			function addNewLanguage() {
+				
+				// document.getElementById("languages").innerHTML += "<li>"
+				// + document.getElementById("newLanguage").value + "</li>"
+								 
+			
+				var li = document.createElement("li");
+				var liText = document.createTextNode(document.getElementById("newLanguage").value);
+				li.appendChild(liText);
+				
+				// Styling
+				// To apply a style class: li.className
+				li.className = "newLi";
+				// or
+				li.style.textDecoration = "underline";
+				
+				// Now add finished element to the DOM tree
+				document.getElementById("languages").appendChild(li);
+				document.getElementById("newLanguage").value = "";
+				
+			}
+		
+		
+		</script>
+	</head>
+	<body>
+	
+		<h1>The Document Object Model</h1>
+		
+		<p>Here is a short HTML page with a number of elements to explore.</p>
+		
+		<ul id="languages">
+			<li>HTML</li>
+			<li>XHTML</li>
+			<li>CSS</li>
+			<li>JavaScript</li>
+		</ul>
+		
+		<hr />
+		
+		<form>
+		
+			<input type="text" id="newLanguage" size="30" /> 
+			<input type="button" id="btn" value="Add to List" />
+		
+		</form>
+		
+	</body>
+</html>

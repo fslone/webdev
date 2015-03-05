@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Using Regular Expressions to Standardize a Data Format</title>
+		<script type="text/javascript">
+			
+			var rePhone = /^\(?([2-9]\d{2})\)?[\-\. ]?(\d{3})[\-\. ]?(\d{4})$/;
+			
+			function formatPhone(phoneField) {
+			
+				if (rePhone.test(phoneField.value)) {
+				
+					phoneField.value = phoneField.value.replace(rePhone, "$1-$2-$3");
+				
+				} else {
+				
+					alert("Your entry does not correspond to an acceptable phone number format.");
+					phoneField.value = "";
+				
+				}
+			
+			}
+			
+		</script>
+	</head>
+	<body>
+	
+	<h1>Telephone Number Clean-Up</h1>
+	
+	<p>Please enter a telephone number and then click the Format button to put in into a standard 
+	###-###-#### format.</p>
+	
+	<form>
+	
+	<input type="text" id="phone" size="20" /> 
+	
+	<input type="button" id="btn" value="Format" onclick="formatPhone(document.getElementById('phone'))" />
+	
+	</form>
+	
+	</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>String Methods</title>
+		<script type="text/javascript">
+			
+			// String
+			
+			var testString = "Basic JavaScript Review";
+			
+			// The length property tells us how many characters in the string
+			
+			alert("testString has " + testString.length + " characters.");
+			
+			// The charAt() method tells us which character is at a given
+			// position (positions are numbered starting at zero)
+			
+			alert("The 5th character in the value is " + testString.charAt(4));
+			
+			// The charCodeAt() method tells us the Unicode character value
+			// of the character at a given position
+			
+			alert("The 8th character's Unicode value is " + testString.charCodeAt(7));
+			
+			// The indexOf() method tells us the position of the first instance
+			// of a specified character; returns -1 if the character is not found
+			
+			alert("The position of the first 'a' is " + testString.indexOf("a"));
+			
+			// The lastIndexOf() method tells us the position of the last instance
+			// of a specified character; returns -1 if the character is not found
+			
+			alert("The position of the last 'a' is " + testString.lastIndexOf("a"));
+			
+			// The substr() method extracts a substring from the target string;
+			// the first parameter is the position where you should start
+			// extracting characters and the second represents how many to
+			// extract
+			
+			alert(testString.substr(6,10));  // returns "JavaScript"
+			
+			// The split() method chops up the string at a specified character
+			// and returns an array with the individual values that are
+			// chopped out
+			
+			var words = testString.split(" ");  // words=("Basic","JavaScript","Review")
+			
+			// toUpperCase() and toLowerCase() convert the string to all
+			// uppercase and all lowercase, respectively
+			
+			alert(testString.toUpperCase());
+			alert(testString.toLowerCase());
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

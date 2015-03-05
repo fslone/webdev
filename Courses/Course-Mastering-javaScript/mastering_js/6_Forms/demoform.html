@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Sample HTML Form</title>
+		<script type="text/javascript">
+			
+		function validate(theForm) {
+			if (!theForm || theForm.nodeName != "FORM") {return false;} 
+			
+			var errors = [];
+			// Text fields, password fields, textarea
+			if (theForm.fname.value == "") {
+				errors.push("Your first name is required.");
+			};
+			if (theForm.lname.value == "") {
+				errors.push("Your last name is required.");
+			};
+			
+			var rbChecked = 0;
+			// theForm.gender is an array of individual radio buttons
+			for (var i=0; i < theForm.gender.length; i++) {
+				if (theForm.gender[i].checked) {
+					rbChecked = 1;
+					break;
+				}
+			}
+			if (!rbChecked) {
+				errors.push("You must indicate your gender.");
+			}
+			// Select list - theForm.Country has a child object called options
+			// theForm.country also a property called selectedIndex
+			if (theForm.country.selectedIndex == 0) {
+				errors.push("You must choose your country of residence.")
+			}
+			
+			console.log("The value associated with option 2 is " + theForm.country.options[2].value);
+			console.log("The display text associated with option 2 is " + theForm.country.options[2].text);
+			
+			// Limit the comments to 100 characters
+			if (theForm.comments.value.length > 100) {
+				errors.push("Please limit your comments to 100 characters or less.");
+				theFormcomments.value = theForm.comments.value.substr(0,100);
+			}
+
+			// Decide whether the form should submit or not.
+			if (errors.length) {
+				var msg = "please correct the following items before submitting: \n\n";
+				for (var j=0; j < errors.length; j++) {
+					msg += "    * " + errors[j] + "\n";
+				}
+				alert(msg);			
+				return false; // abort the submission of the form.
+			} 
+			else {
+				return true; // allow our form data to pass to the server.
+			}		
+		} 
+	
+		
+			
+		</script>
+	</head>
+	<body>
+		
+	<h1>Sample HTML Form</h1>
+	
+	<form name="surveyForm" onsubmit="return validate(this);">
+	
+	<p><b>First Name:</b><br /><input type="text" name="fname" size="30" /></p>	
+	
+	<p><b>Last Name:</b><br /><input type="text" name="lname" size="30" /></p>	
+	
+	<p><b>Gender:</b><br />
+	<input type="radio" name="gender" value="F" /> Female <input type="radio" name="gender" value="M" /> Male
+	</p>
+		
+	<p><b>Skills:</b><br />
+	<input type="checkbox" name="skill" value="HTML" /> HTML<br />
+	<input type="checkbox" name="skill" value="CSS" /> CSS<br />
+	<input type="checkbox" name="skill" value="JavaScript" /> JavaScript<br />
+	<input type="checkbox" name="skill" value="XML" /> XML<br />
+	<input type="checkbox" name="skill" value="Ajax" /> Ajax
+	</p>	
+	
+	<p><b>Country:</b><br />
+	<select name="country">
+	<option selected="selected">-- Choose One --</option>
+	<option>Australia</option>	
+	<option>Canada</option>
+	<option>United Kingdom</option>
+	<option>United States</option>	
+	</select>
+	</p>
+	
+	<p><b>Comments:</b><br />
+	<textarea name="comments" rows="10" cols="60"></textarea>
+	</p>
+	
+	<p>
+	<input type="submit" value="Submit Data" /> 
+	<input type="reset" value="Reset Form" />	
+	</p>
+		
+	</form>	
+		
+	</body>
+</html>

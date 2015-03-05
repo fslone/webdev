@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Lab Exercise #8</title>
+		<style type="text/css">
+		
+			#box {
+				width: 600px;
+				height: 480px;
+				background-color: rgb(255, 215, 0);
+				border: 2px solid black;
+			}
+		
+		</style>
+		<script type="text/javascript">
+		
+			// setTimeout(function(){}, delay);
+			
+			function fadeBG() {
+			
+				var red = 255;
+				var green = 215;
+				var blue = 0;
+				var theBox = document.getElementById("box");
+				
+				function changeBG(){
+					
+					// if (red < 255 || green < 255 || blue < 255)
+					if (red < 255) {red++};
+					if (green < 255) {green++};
+					if (blue < 255) {blue++};
+				
+					theBox.style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
+					
+					if (red != 255 || green != 255 || blue != 255) {
+						setTimeout(function(){changeBG();}, 10);
+					}	
+			
+				};
+
+				changeBG();
+				
+				// Write a nested function that will progressively march the values
+				// of red, green and blue to 255, updating the div's background color
+				// with each change.  Because it doesn't take long for JavaScript to 
+				// count to 255, you should use setTimeout() to introduce a short delay
+				// (10-20 milliseconds should be fine) before the next change to the
+				// background color.
+				
+				// Don't forget to make the initial call to your nested function to
+				// get the animation started.
+				
+				
+			
+			}
+			
+			window.onload = function() {
+			
+				document.getElementById("btn").onclick = fadeBG;
+			
+			}
+
+
+		</script>
+	</head>
+	<body>
+	
+		<div id="box"></div>
+		<br />
+		<form>
+			<input type="button" value="Animate Background Color" id="btn" />
+		</form>
+	
+	</body>
+</html>

@@ -1,0 +1,56 @@
+<html>
+
+	<head>
+		<title>A Cross-Browser Ajax Request</title>
+		<script type="text/javascript">
+		
+		function doAjax() {
+			
+			var xhr;
+			
+			try {
+				xhr = new XMLHttpRequest();
+			} catch (ex) {
+				xhr = new ActiveXObject("Microsoft.XMLHttp");
+			}
+			
+			var outputDiv = document.getElementById("response");
+			
+			if (!xhr) {
+			
+				outputDiv.innerHTML = "<h1>No Ajax support on this browser</h1>";
+			
+			} else {
+			
+				// Step 1 - Set up but do not execute the request
+				// 			xhr.open("GET or POST", "URL / Domain Locked", true (is it asyncronous?));
+				xhr.open("GET", "employeetable.php", true);
+			
+				// Step 2 - Create your callaback function
+				xhr.onreadystatechange = function () {
+					
+					if (xhr.readyState == 4 && xhr.status == 200) {
+						
+						outputDiv.innerHTML = xhr.responseText;
+						
+					}
+					
+				}
+				
+				// Step 3 - Execute the request
+				xhr.send(null);
+			
+			}
+			
+			
+		}
+			
+		</script>
+	</head>
+	<body>
+		<form>
+			<input type="button" value="Don't Click Me" onclick="doAjax();" />
+		</form>
+		<div id="response"></div>
+	</body>
+</html>

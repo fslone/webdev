@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Lab 7: Creating a JavaScript Object Class</title>
+		<script type="text/javascript">
+
+			function Employee(fname,lname,title,salary) {
+
+			   this.FirstName = fname;
+			   this.LastName = lname;
+			   this.Title = title;
+			   this.Salary = salary;
+			   this.Status = "employed";
+
+			}
+
+			Employee.prototype.fire = function() {
+
+			   this.Status = "terminated";
+			   alert(this.FirstName + " " + this.LastName + " has been " + this.Status + ".");
+
+			}
+
+			Employee.prototype.retire = function() {
+
+			   this.Status = "retired";
+			   alert(this.FirstName + " " + this.LastName + " has been " + this.Status + ".");
+
+			}
+
+			Employee.prototype.giveRaise = function(percent) {
+
+			   this.Salary *= (1 + percent);
+			   alert(this.FirstName +  " " + this.LastName + " has a salary of " + this.Salary + ".");
+
+			}
+
+			var Anne = new Employee("Anne", "Larson", "Project Manager", 65000);
+			var Bill = new Employee("Bill", "Worthington", "Engineer", 78000);
+			var Carol = new Employee("Carol", "Maxwell", "HR Director", 92500);
+			var Don = new Employee("Donald", "Trump", "Egomaniac", 1000000);
+
+			Anne.giveRaise();
+			Bill.retire()
+			Carol.giveRaise();
+			Don.fire();		
+			
+		</script>
+	</head>
+	<body>
+	
+	
+	</body>
+</html>

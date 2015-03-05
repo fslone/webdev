@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Wrapped Set Operations</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<link rel="stylesheet" href="../../css/module2.css" />
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script type="text/javascript">
+			
+		$(function() {
+			
+			// .add(selector) - adds new element(s) to an existing jQuery object.
+			$("li").addClass("blue bold").add("p").addClass("redBorder")
+			.end().addClass("silverBG");
+			
+			// .filter(selector) - express what to keep in the jQuery object.
+			// .not(selector) - express what to throw out of the jQuery object.
+			// .eq(index) - reduces the jQuery object to a single DOM element.
+			$("div > div").addClass("italic")
+				.not(":contains('Frost')").addClass("bold");
+				
+			// Adding new content to the DOM
+			// .append(), .prepend() - add new child elements
+			// .before(), .after() - add new sibling elements
+			var li = document.createElement("li");	
+			var liText = document.createTextNode("New List Item (start of list)");
+			li.appendChild(liText);
+			var p = $("<p>New Paragraph between the lists</p>");
+			
+			$("ul").prepend(li).append("<li>New List Item (end of list)</li>").after(p);
+			
+			// text(), html() as GET methods
+			// alert($("li").text()); // acts on ALL elements in the jQuery object
+			// alert($("li").html()); // acts on FIRST element in the jQuery object
+						
+			// text(), html() as SET methods
+			$("div > div").html("<p>There use to be a poem here.</p>"); // with markup
+			//$("div > div").text("<p>There use to be a poem here.</p>"); // without markup
+			
+			// .find(selector) - will kick out the parent selector.
+			$("div").find("p").andSelf().addClass("blueBorder");
+			
+			// $("p", "#poem_wrapper") = $("#poem_wrapper p")
+			
+			// .each()
+			/* 
+			$("td:gt(3)").each(function(index, domElement){
+				console.log(domElement.innerHTML);				
+			})
+			*/
+			$("td:gt(3)").each(function(){
+				// this = current DOM element
+				console.log(this.innerHTML);				
+			})
+			
+			
+		});
+			
+		</script>
+	</head>
+	<body>
+		
+	<h1>Sample Page with Lots of Elements</h1>	
+	
+	<h2>Lists</h2>
+	
+	<ul>
+		<li>JavaScript</li>
+		<li>HTML</li>
+		<li>CSS</li>
+		<li>jQuery</li>
+	</ul>
+	
+	<ol>
+		<li>Giants</li>
+		<li>49ers</li>
+		<li>A's</li>
+		<li>Sharks</li>
+	</ol>
+	
+	<hr />
+	
+	<h2>Paragraphs</h2>
+	
+	<p>Do not worry about your difficulties in Mathematics. I can assure you mine are still greater. --  Albert Einstein</p>
+	
+	<p>A banker is a fellow who lends you his umbrella when the sun is shining, but wants it back the minute it begins to rain. -- Mark Twain</p>
+	
+	<p>Illusion is the first of all pleasures. -- Oscar Wilde</p>
+	
+	<p>Do not be too moral. You may cheat yourself out of much life. Aim above morality. Be not simply good; be good for something. -- Henry David Thoreau</p>
+	
+	<p>Be civil to all; sociable to many; familiar with few; friend to one; enemy to none. -- Benjamin Franklin</p>
+	
+	<hr />
+	
+	<h2>Divs</h2>
+	
+	<div id="poem_wrapper">
+	
+	<div>
+		Somewhere ages and ages hence:<br />
+        Two roads diverged in a wood, and I-<br />
+		I took the one less traveled by,<br />
+		And that has made all the difference.<br /><br />
+		Robert Frost
+	</div>
+	
+	<div>
+		Take this kiss upon the brow!<br />
+		And, in parting from you now,<br />
+		Thus much let me avow--<br />
+		You are not wrong, who deem<br />
+		That my days have been a dream;<br /><br />
+		Edgar Allen Poe
+	</div>
+	
+	</div>
+	
+	<hr />
+	
+	<h2>Table</h2>
+	
+	<table border="1" cellpadding="8">
+		<tr>
+			<th>State</th>
+			<th>Capital</th>
+		</tr>
+		<tr>
+			<td>Washington</td>
+			<td>Olympia</td>
+		</tr>
+		<tr>
+			<td>Oregon</td>
+			<td>Salem</td>
+		</tr>
+		<tr>
+			<td>California</td>
+			<td>Sacramento</td>
+		</tr>
+		<tr>
+			<td>Nevada</td>
+			<td>Carson City</td>
+		</tr>
+		<tr>
+			<td>Montana</td>
+			<td>Helena</td>
+		</tr>
+		<tr>
+			<td>Utah</td>
+			<td>Salt Lake City</td>
+		</tr>
+		<tr>
+			<td>Arizona</td>
+			<td>Phoenix</td>
+		</tr>
+	</table>
+		
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Lab 5</title>
+		<script type="text/javascript">
+		
+		// Possible Solution to Exercise 5
+
+		// Set up one counter for each lowercase letter
+		var letters = "abcdefghijklmnopqrstuvwxyz";
+		var counters = [];
+		var i;
+
+		for (i=0; i<letters.length; i++) {
+
+		  counters[letters.charAt(i)] = 0;
+
+		};
+
+		var testString = "WebMD JavaScript Training";
+		var testStringLC = testString.toLowerCase();
+		var j, thisChar;
+
+		for (j=0; j<testStringLC.length; j++) {
+
+		   thisChar = testStringLC.charAt(j);
+		   counters[thisChar]++;
+
+		};
+
+		// Now check all of the counters and print out the non-zero values
+
+		for (i=0; i<letters.length; i++) {
+
+		  thisChar = letters.charAt(i);
+		  if (counters[thisChar] > 0) {
+			console.log("The letter ", thisChar, " appears ", counters[thisChar], " times.");
+		  };
+
+		};			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

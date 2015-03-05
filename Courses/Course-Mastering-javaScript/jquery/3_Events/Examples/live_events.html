@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Creating Live Events</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<link rel="stylesheet" href="../../css/module3.css" />
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script type="text/javascript">
+			
+		$(function() {
+		
+			// use .live() instead of bind to keep the click function on the new paragraphs
+			/*
+			$("p").live("click", function(){
+				$(this).toggleClass("redBG");
+			});
+
+			$("#addQuote").bind("click", function(){
+				$("#quote_wrapper").append("<p>" + $("#newquote").val() + "</p>");
+			});
+
+			$("#stopLive").bind("click", function(){
+				$("p").die("click");
+			});
+			*/
+
+			// 1.4.4 and above == .delegate support == doesn't bubble up the DOM all the way.
+
+			$("#quote_wrapper").delegate("p", "click", function(){
+				$(this).toggleClass("redBG");
+			});
+
+			$("#addQuote").bind("click", function(){
+				$("#quote_wrapper").append("<p>" + $("#newquote").val() + "</p>");
+			});
+
+			$("#stopLive").bind("click", function(){
+				$("#quote_wrapper").undelegate("p", "click");
+			});
+			
+			
+		});
+			
+		</script>
+	</head>
+	<body>
+		
+	<h1>Favorite Quotations</h1>	
+	
+	<div id="quote_wrapper">
+		
+	<p>The essence of all jokes, of all comedy, seems to be an honest or well intended halfness; a non performance of that which is pretended to be performed, at the same time that one is giving loud pledges of performance. The balking of the intellect, is comedy and it announces itself in the pleasant spasms we call laughter. -- Ralph Waldo Emerson</p>
+	
+	<p>You can only be young once. But you can always be immature. -- Dave Barry</p>
+	
+	<p>Democracy is the theory that the common people know what they want and deserve to get it good and hard. -- H.L. Mencken</p>
+	
+	</div>
+	
+	<hr />
+	
+	<form>
+		<textarea rows="5" cols="30" id="newquote"></textarea>
+		<br />
+		<input type="button" id="addQuote" value="Add Quote" /> 
+		<input type="button" id="stopLive" value="Discontinue Live Event" />
+	</form>
+	
+	
+	</body>
+</html>
+

@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Using Attributes</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<link rel="stylesheet" href="../../css/module2.css" />
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script type="text/javascript">
+			
+		$(function() {
+			
+			// [attribute_name] - tests for existence
+			$("a[href]").addClass("noUnderline");
+
+			// [attribute=value] , [attribute!=value]
+			$("img[width=81]").hide(3000);
+				
+			// [attribute^='substring'] starts with, [attribute$='substring'] ends with 
+			$("a[href^='http://www']").addClass("silverBG");
+			$("a[href$='.com/']").addClass("bold");
+			
+			// [attribute*='substring'] contains
+			$("a[href*='w3.org']").addClass("invert");
+				
+		});
+			
+		</script>
+	</head>
+	<body>
+		
+	<h1>Sample Page with Lots of Elements</h1>	
+	
+	<h2>Lists</h2>
+	
+	<ul>
+		<li><a href="http://www.javascript.com/">JavaScript</a></li>
+		<li><a href="http://www.w3.org/html/">HTML</a></li>
+		<li><a href="http://www.w3.org/Style/CSS/">CSS</a></li>
+		<li><a href="http://jquery.com/">jQuery</a></li>
+	</ul>
+	
+	<hr />
+	
+	<h2>Paragraphs</h2>
+	
+	<p>Do not worry about your difficulties in Mathematics. I can assure you mine are still greater. --  Albert Einstein</p>
+	
+	<p>A banker is a fellow who lends you his umbrella when the sun is shining, but wants it back the minute it begins to rain. -- Mark Twain</p>
+	
+	<p>Illusion is the first of all pleasures. -- Oscar Wilde</p>
+	
+	<p>Do not be too moral. You may cheat yourself out of much life. Aim above morality. Be not simply good; be good for something. -- Henry David Thoreau</p>
+	
+	<p>Be civil to all; sociable to many; familiar with few; friend to one; enemy to none. -- Benjamin Franklin</p>
+	
+	<hr />
+	
+	<img src="../../images/logo_jquery_small.gif" alt="jQuery logo" width="81" height="23" border="0" />
+		
+	</body>
+</html>

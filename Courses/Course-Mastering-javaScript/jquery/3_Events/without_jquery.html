@@ -1,0 +1,62 @@
+<html>
+
+	<head>
+		<title>The Gory Details of Cross-Browser Event Handling</title>
+		<script type="text/javascript">
+		
+			window.onload = function() {
+		
+				var button = document.getElementById("btn");
+			
+				// Set up the event listener
+				if (button.addEventListener) {
+				
+					// All browsers other than IE
+					button.addEventListener("click", clickCallback, false);
+				
+				} else if (button.attachEvent) {
+				
+					// Internet Explorer
+					button.attachEvent("onclick", clickCallback);
+				
+				} else {
+				
+					alert("Could not set up click event listener!")
+					
+				};
+				
+				/*
+				
+					Every browser other than IE creates an event object and
+					passes that object to the event's callback function.
+					
+					Internet Explorer captures and stores the event details
+					in window.event.
+				
+				*/
+				
+				function clickCallback(evtObj) {
+				
+					if (!evtObj) {evtObj = window.event};
+					
+					// Which DOM element was on the receiving end of the event?
+					var targetElement = evtObj.target || evtObj.srcElement;
+					
+					alert("You clicked on a " + targetElement.nodeName + " element whose value is " + targetElement.value);				
+				
+				}	
+	
+			}
+	
+		</script>
+	</head>
+	
+	<body>
+	
+		<form>
+			<input type="button" value="Don't Click Me" id="btn" />
+		</form>	
+	
+	</body>
+	
+</html>

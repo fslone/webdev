@@ -1,0 +1,31 @@
+/*
+	Style sheet for Module 4 Lab
+*/
+
+body {
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+	font-size: 12px;
+}
+
+div {
+	padding: 10px;
+	margin-bottom: 10px;
+	display: none;
+}
+
+#editingForm {
+	border: 1px solid black;
+	position: absolute;
+	left: 400px;
+	top: 75px;
+}
+
+#updateMessage {
+	background-color: gold;
+	color: red;
+	font-weight: bold;
+	position: absolute;
+	top: 200px;
+	width: 250px;
+	text-align: center;
+}

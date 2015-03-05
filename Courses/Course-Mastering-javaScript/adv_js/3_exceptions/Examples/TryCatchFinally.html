@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Using a try/catch Block</title>
+		<script type="text/javascript">
+			
+			var a, b;
+			a = ["one", 2, "three"];
+			try {
+	
+				// What if a doesn't exist, is not an array or doesn't have a join method?
+				/* 
+				if (!(a instanceof Array)) {
+					throw "a is not a JavaScript array.";
+				}
+				*/
+				b = a.join(", ");  
+  
+			} catch (e) {
+	
+				alert("a doesn't exist, it isn't an array or it doesn't have a join method!");
+			
+				// Provide some other value for b since the initial assignment failed
+				b = "undefined";
+	
+			} finally {
+				// we can safely reference the variable b
+				console.log("b = " + b);
+			}
+			
+			
+			
+		</script>
+	</head>
+	<body>
+	
+	
+	</body>
+</html>

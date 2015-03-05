@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Using a try/catch Block</title>
+		<script type="text/javascript">
+			
+			var a, b;
+			
+			a = "something";
+			
+			try {
+				b = a.push("something else");
+				
+			} catch (ex) {
+				alert("whoops. A is not an array or A does not have an available push method.");
+				//alert(ex.message);
+				for (var i in ex) {console.log(i + ": " + ex[i])}
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+	
+	
+	</body>
+</html>

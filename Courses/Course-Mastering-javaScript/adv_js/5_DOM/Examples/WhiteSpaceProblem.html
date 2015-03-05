@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Document Object Model Properties</title>
+		<script type="text/javascript">
+		
+			function addEvent(domElement, event, callback) {
+			
+				if (domElement.addEventListener) {
+				
+					domElement.addEventListener(event, callback, false);
+					return true;
+					
+				} else if (domElement.attachEvent) {
+				
+					return domElement.attachEvent("on" + event, callback);
+			
+				} else {
+				
+					return false;
+				
+				}
+			
+			}
+			
+			function showNodeDetails(evtObj) {
+			
+				if (!evtObj) {evtObj = window.event};
+				var target = evtObj.target || evtObj.srcElement;
+				
+				var msg = "You clicked on a node named " + target.nodeName + ".\n\n";
+				msg += "Its parent is a " + target.parentNode.nodeName + " node.\n\n";
+				msg += "It has " + target.childNodes.length + " child node(s).\n\n";
+				if (target.firstChild) {
+					msg += "Its first child is a " + target.firstChild.nodeName + " node.\n\n"
+				}
+				if (target.lastChild) {
+					msg += "Its last child is a " + target.lastChild.nodeName + " node.\n\n"
+				}
+				if (target.previousSibling) {
+					msg += "Its preceding sibling is a " + target.previousSibling.nodeName + " node.\n\n"
+				}
+				if (target.nextSibling) {
+					msg += "Its following sibling is a " + target.nextSibling.nodeName + " node.\n\n"
+				}
+				
+				alert(msg);
+			
+			}
+			
+			function removeEmptySpaceNodes(startNode) {
+				
+				if (startNode.nodeType != 1 || startNode.childNodes.length == 0) return true;
+				
+				var thisChild;
+				for (var i=startNode.childNodes.length-1; i>0; i--) {
+					
+					thisChild = startNode.childNodes[i];
+					if (thisChild.nodeType == 3 && /^\s+$/.test(thisChild.nodeValue)) {
+						startNode.removeChild(thisChild);
+					} else if (thisChild.childNodes.length > 0) {
+						removeEmptySpaceNodes(thisChild);
+					}
+				}
+			}
+		
+			window.onload = function() {
+				
+				removeEmptySpaceNodes(document.body);
+				 
+				for (var i=0; i<document.body.childNodes.length; i++) {
+				
+					addEvent(document.body.childNodes[i], "click", showNodeDetails)
+				
+				}
+			
+			}
+		
+		</script>
+	</head>
+	<body>
+	
+		<h1>The Document Object Model</h1>
+		
+		<p>Here is a short HTML page with a number of elements to explore.</p>
+		
+		<ul>
+			<li>HTML</li>
+			<li>XHTML</li>
+			<li>CSS</li>
+			<li>JavaScript</li>
+		</ul>
+		
+	</body>
+</html>

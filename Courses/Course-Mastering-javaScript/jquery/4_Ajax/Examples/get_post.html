@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Ajax Using the $.get() and $.post() Methods</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<link rel="stylesheet" href="../../css/module4.css" />
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script type="text/javascript">
+			
+		$(function() {
+			
+			$.post("employeetable.php", "dept=IT", function(response, status, xhr){
+			
+				$("#div1").html(response).slideDown(1500);
+			
+			});
+			
+			// $("#div1").load("employeetable.php").slideDown(1500);
+			
+		});
+			
+		</script>
+	</head>
+	<body>
+		
+		<div class="content" id="div1"></div>
+	
+	
+	</body>
+</html>
+

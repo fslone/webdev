@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Using Content Filters</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<link rel="stylesheet" href="../../css/module2.css" />
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script type="text/javascript">
+			
+		$(function() {
+			
+			// :contains('substring') -- 
+			// $("body :contains('you')").addClass("goldBG");
+	
+			// or
+
+			// :contains('substring') -- 
+			$("p,div").html(function(index, elemInnerHTML){
+				return elemInnerHTML.replace(/([Yy]ou)/g, "<span class='redBG'>$1</span>")
+			});
+
+			// :has(selector) -- 
+			$("tr:has(th)").addClass("evenRows");
+
+			// :empty -- finds any empty elements (<img>,<br>,<hr> but also <p></p>)
+			
+			// :parent -- finds any element with at least one child 
+
+
+
+		});
+			
+		</script>
+	</head>
+	<body>
+		
+	<h1>Sample Page with Lots of Elements</h1>	
+	
+	<h2>Lists</h2>
+	
+	<ul>
+		<li>JavaScript</li>
+		<li>HTML</li>
+		<li>CSS</li>
+		<li>jQuery</li>
+	</ul>
+	
+	<ol>
+		<li>Giants</li>
+		<li>49ers</li>
+		<li>A's</li>
+		<li>Sharks</li>
+	</ol>
+	
+	<hr />
+	
+	<h2>Paragraphs</h2>
+	
+	<p>Do not worry about your difficulties in Mathematics. I can assure you mine are still greater. --  Albert Einstein</p>
+	
+	<p>A banker is a fellow who lends you his umbrella when the sun is shining, but wants it back the minute it begins to rain. -- Mark Twain</p>
+	
+	<p>Illusion is the first of all pleasures. -- Oscar Wilde</p>
+	
+	<p>Do not be too moral. You may cheat yourself out of much life. Aim above morality. Be not simply good; be good for something. -- Henry David Thoreau</p>
+	
+	<p>Be civil to all; sociable to many; familiar with few; friend to one; enemy to none. -- Benjamin Franklin</p>
+	
+	<hr />
+	
+	<h2>Divs</h2>
+	
+	<div>
+		Somewhere ages and ages hence:<br />
+        Two roads diverged in a wood, and I-<br />
+		I took the one less traveled by,<br />
+		And that has made all the difference.<br /><br />
+		Robert Frost
+	</div>
+	
+	<div>
+		Take this kiss upon the brow!<br />
+		And, in parting from you now,<br />
+		Thus much let me avow--<br />
+		You are not wrong, who deem<br />
+		That my days have been a dream;<br /><br />
+		Edgar Allen Poe
+	</div>
+	
+	<hr />
+	
+	<h2>Table</h2>
+	
+	<table border="1" cellpadding="8">
+		<tr>
+			<th>State</th>
+			<th>Capital</th>
+		</tr>
+		<tr>
+			<td>Washington</td>
+			<td>Olympia</td>
+		</tr>
+		<tr>
+			<td>Oregon</td>
+			<td>Salem</td>
+		</tr>
+		<tr>
+			<td>California</td>
+			<td>Sacramento</td>
+		</tr>
+		<tr>
+			<td>Nevada</td>
+			<td>Carson City</td>
+		</tr>
+		<tr>
+			<td>Montana</td>
+			<td>Helena</td>
+		</tr>
+		<tr>
+			<td>Utah</td>
+			<td>Salt Lake City</td>
+		</tr>
+		<tr>
+			<td>Arizona</td>
+			<td>Phoenix</td>
+		</tr>
+	</table>
+		
+	</body>
+</html>

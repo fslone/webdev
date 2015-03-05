@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Assigning Default Values to Arguments</title>
+		<script type="text/javascript">
+		
+		function setBG(red, green, blue) {
+		
+			//Argument vetting and defaults
+			red = (red != undefined && !isNaN(red) && red >= 0 && red <= 255) ? red : 255;
+			green = (green != undefined && !isNaN(green) && green >= 0 && green <= 255) ? green : 215;
+			blue = (blue != undefined && !isNaN(blue) && red >= 0 && blue <= 255) ? blue : 0;
+			
+			document.body.style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
+			
+		}
+
+		</script>
+	</head>
+	<body>
+	
+		<form>
+			<input type="button" value="Set Background Color" onclick="setBG(128, 0, 0)" />
+		</form>	
+	
+	</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Lab 4: Creating a Simple Calculator</title>
+		<script type="text/javascript">
+		
+			/*
+			
+				Rig the button below to do the computation indicated by the numbers in the
+				text fields and the operation chosen in the select list.  For the purposes of
+				the lab, don't worry about verifying that the entries in the boxes are 
+				numbers since JavaScript will just put up NaN as the result.
+				
+				Additionally when the button is clicked, update the total number of results 
+				computed in the span at the bottom of the page.
+			
+			
+			*/
+
+			function addEvent(domElement, event, callback) {
+			
+				if (domElement.addEventListener) {
+				
+					domElement.addEventListener(event, callback, false);
+					return true;
+					
+				} else if (domElement.attachEvent) {
+				
+					return domElement.attachEvent("on" + event, callback);
+			
+				} else {
+				
+					return false;
+				
+				}
+			
+			}			
+
+
+			window.onload = function (){
+				
+				var theButton = document.getElementById("btn");
+				addEvent(theButton, "click", doTheMath);
+				addEvent(theButton, "click", changeCounter);
+			}
+			
+			function doTheMath() {
+				var num1 = document.getElementById("num1").value;
+				var num2 = document.getElementById("num2").value;
+				var theResult;
+				switch (document.getElementById("operation").selectedIndex) {
+					case 0:
+						theResult = (num1*1) + (num2*1);
+						break;
+					case 1:
+						theResult = num1 - num2;
+						break;
+					case 2:
+						theResult = num1 * num2;
+						break;
+					case 3:
+						theResult = num1 / num2;
+						break;
+				}
+				document.getElementById("result").value = theResult;
+				//document.getElementById("numResults").innerHTML = theResult;
+
+			}
+			
+			function changeCounter() {
+				var theSpan = document.getElementById("numResults");
+				theSpan.innerHTML = ++theSpan.innerHTML;
+			
+			}
+			
+		</script>
+	</head>
+	<body>
+	
+		<h1>A Simple Calculator</h1>
+		
+		<p>Enter a number in each box and choose an operation from the list.  Then click the Compute button to see the result.</p>
+		
+		<form>
+		
+			<input type="text" id="num1" size="5" /> 
+			<select id="operation">
+			<option>+</option>
+			<option>-</option>
+			<option>*</option>
+			<option>/</option>
+			</select>
+			<input type="text" id="num2" size="5" /> 
+			= 
+			<input type="text" id="result" size="8" /> 
+			<input type="button" id="btn" value="Compute" />
+		
+		</form>	
+		
+		<hr />
+		
+		<p>Results Computed: <span id="numResults">0</span></p>
+	
+	</body>
+</html>

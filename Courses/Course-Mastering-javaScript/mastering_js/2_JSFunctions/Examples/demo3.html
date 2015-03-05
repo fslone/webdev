@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Simple User Defined Function (UDF)</title>
+		<script type="text/javascript">
+
+			// Simple UDF
+			
+			var price = 99.99;
+			var priceWithTax = salesTax();
+			
+			console.log(priceWithTax.toFixed(2));
+			
+			function salesTax() {
+			
+			  // Compute 7% sales tax
+			  var taxAmount = price * 0.07;  // be sure to use 'var' inside functions
+			  return price + taxAmount;
+			
+			}			
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

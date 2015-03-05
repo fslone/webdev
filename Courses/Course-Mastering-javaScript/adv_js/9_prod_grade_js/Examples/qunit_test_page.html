@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+
+  <script src="jquery.min.js"></script>
+  
+  <link rel="stylesheet" href="qunit.css" type="text/css" media="screen" />
+  <script type="text/javascript" src="qunit.js"></script>
+
+  <script type="text/javascript">
+  
+    $(document).ready(function(){
+    
+    	// unit tests can be grouped into modules.
+    	
+    	module("WebMD Class Unit Tests");
+    	test("Truthiness Tests", function() {
+    		
+    		// ok() assertion passes if the associated value is "truthy"
+    		ok(true, "Boolean true");
+    		ok(10, "Positive integer");
+    		ok(0, "Zero");
+    		ok(-10, "Negative integer");
+    		ok("WebMD", "Non-empty string");
+    		ok("", "Empty string");
+    		ok(null, "null");
+    		
+    		
+    		
+    	});
+    	
+    	function compute(x,y,z) {
+    		return (x - y) * z;
+    	}
+    	
+    	test("compute() Function", 4, function() {
+    		equals(compute(5,5,10), 0, "compute(5, 5, 10)");
+    		equals(compute(3,7,0), 0, "compute(3, 7, 0)");
+    		equals(compute(10,5,12), 60, "compute(10, 5, 12)");
+    	});
+
+	});
+   
+  </script>
+  
+</head>
+
+<body>
+
+<h1 id="qunit-header">QUnit Example</h1>
+<h2 id="qunit-banner"></h2>
+<h2 id="qunit-userAgent"></h2>
+
+<ol id="qunit-tests"></ol>
+
+</body>
+</html>

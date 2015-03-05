@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>Lab 6 - Employee Directory Application</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<script type="text/javascript">
+			
+			function createXHR() {
+			
+				try {
+					// This will work for IE 7+ and all non-IE browsers
+					var xhr = new XMLHttpRequest();
+				}
+				catch(e)
+				{
+					// For IE 6 and earlier ...
+					var ieXHRVersions = ["MSXML2.XMLHttp.7.0", "MSXML2.XMLHttp.6.0", "MSXML2.XMLHttp.5.0", "MSXML2.XMLHttp.4.0", "MSXML2.XMLHttp.3.0", "MSXML2.XMLHttp", "Microsoft.XMLHttp"];
+					
+					var i;
+					for (i=0; i < ieXHRVersions.length; i++)
+					{
+						try
+						{
+							var xhr = new ActiveXObject(ieXHRVersions[i]);
+							break;
+						}
+						catch(e1)
+						{
+							// Nothing to do except move on and try the next known version ...
+						}
+					}
+				}
+				
+				return xhr;
+			
+			}
+			
+			var xhr = createXHR();
+			
+			window.onload = function() {
+			
+				xhr.open("GET", "employeeselectlist.php", true);
+				
+				xhr.onreadystatechange = function(){
+				
+					if (xhr.readyState==4 && xhr.status==200) {
+					
+						document.getElementById("employees").innerHTML = xhr.responseText;
+						document.getElementById("employeeList").onchange = function() {
+						
+							xhr.open("GET", "employeedetail.php?id=" + this.options[this.selectedIndex].value, true);
+							
+							xhr.onreadystatechange = function() {
+							
+								if (xhr.readyState==4 && xhr.status==200) {
+								
+									document.getElementById("details").innerHTML = xhr.responseText;
+								
+								}
+							
+							}
+							
+							xhr.send(null);
+						
+						
+						}
+					
+					}
+				
+				}
+				
+				xhr.send(null);
+			
+			
+			}
+			
+		</script>
+	</head>
+	<body>
+	
+		<h1>Employee Directory</h1>
+		
+		<div id="employees"></div>
+		<div id="details"></div>
+	
+	</body>
+</html>
+

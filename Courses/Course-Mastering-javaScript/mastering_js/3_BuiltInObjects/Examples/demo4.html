@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>typeof and instanceof</title>
+		<script type="text/javascript">
+
+			// typeofOperator
+			
+			// Output from various typeof commands:
+			
+			var a = [1, 2, 3];
+			var b = false;
+			var d = new Date();
+			var f = function greeting(){console.log("Hi!")};
+			var n = 245;
+			var s = "JavaScript";
+			
+			console.log(typeof b);  // returns boolean
+			console.log(typeof n);  // returns number
+			console.log(typeof s);  // returns string
+			console.log(typeof a);  // returns object
+			console.log(typeof f);  // returns function
+			console.log(typeof d);  // returns object
+			console.log(typeof Math); // returns object
+			console.log(typeof null); // returns object
+			
+			// Output from various instanceof commands:
+			
+			console.log(d instanceof Date);  // Evaluates to true
+			console.log(d instanceof Array);  // Evaluates to false
+			
+			console.log(a instanceof Array);  // Evaluates to true
+			console.log(a instanceof Number);  // Evaluates to false			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
